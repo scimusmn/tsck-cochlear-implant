@@ -32,6 +32,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
+        icon: 'src/images/smm.png',
         name: 'app-default',
         short_name: 'app',
         start_url: '/',
