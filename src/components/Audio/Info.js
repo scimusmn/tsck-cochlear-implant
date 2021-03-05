@@ -3,9 +3,9 @@ import React from 'react';
 const Info = () => {
   console.log('???');
   return (
-    <div>
-      info
-    </div>
+    <h3>
+      Info
+    </h3>
   );
 };
 
