@@ -1,15 +1,15 @@
 import React from 'react';
 // import { Link } from 'gatsby';
 
-import Info from '@components/Audio/Info';
-import Record from '@components/Audio/Record';
-import Samples from '@components/Audio/Samples';
+// import Info from '@components/audio/info';
+import Record from '@components/audio/record';
+// import Samples from '@components/audio/samples';
 
 const IndexPage = () => (
   <>
-    <Info />
+    {/* <Info /> */}
     <Record />
-    <Samples />
+    {/* <Samples /> */}
   </>
 );
 

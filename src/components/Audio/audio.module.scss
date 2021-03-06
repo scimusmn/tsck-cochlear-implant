@@ -1,0 +1,16 @@
+.container {
+  padding: 4rem;
+}
+
+.recorder {
+  display: flex;
+  align-items: center;
+
+  audio {
+    margin: 0 2rem;
+  }
+}
+
+.timer {
+  margin-top: 2rem;
+}

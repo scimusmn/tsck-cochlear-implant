@@ -1,8 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { useReactMediaRecorder } from 'react-media-recorder';
+import * as styles from './audio.module.scss';
+/**
+ * if user is recording disable playback and vice versa
+ * one possible solution: delete blob when recording starts
+ */
 
 const Record = () => {
-  const [time, setTime] = useState();
+  const [intervalVal, setIntervalVal] = useState();
+  const [timeLeft, setTimeLeft] = useState(10);
 
   const {
     status,
@@ -12,39 +18,63 @@ const Record = () => {
     clearBlobUrl,
   } = useReactMediaRecorder({ video: false });
 
-  const changeRecordingStatus = () => {
-    if (status === 'recording') {
-      stopRecording();
-    } else {
-      startRecording();
-      if (time) clearTimeout(time);
+  const recording = status === 'recording';
 
-      setTime(
-        setTimeout(() => {
-          stopRecording();
-        }, 10000),
-      );
-    }
+  const calculateTimeRemaining = () => {
+    setTimeLeft((prevTime) => prevTime - 1);
   };
 
-  useEffect(() => () => clearTimeout(time), []);
+  const abortRecording = () => {
+    clearInterval(intervalVal);
+    stopRecording();
+  };
 
   const deleteRecording = () => {
     clearBlobUrl();
   };
 
+  const changeRecordingStatus = () => {
+    if (recording) {
+      abortRecording();
+    } else {
+      deleteRecording();
+      setTimeLeft(10);
+      startRecording();
+      setIntervalVal(setInterval(calculateTimeRemaining, 1000));
+    }
+  };
+
+  useEffect(() => {
+    if (timeLeft === 0) {
+      abortRecording();
+    }
+  }, [timeLeft]);
+
+  useEffect(
+    () => () => {
+      clearInterval(intervalVal);
+    },
+    [],
+  );
+
   return (
-    <div>
-      <button onClick={changeRecordingStatus} type="button">
-        {status === 'recording' ? 'Stop' : 'Start'}
-        Recording
-      </button>
-      <audio controls src={mediaBlobUrl || ''}>
-        <track kind="captions" />
-      </audio>
-      <button onClick={deleteRecording} type="button">
-        Delete Recording
-      </button>
+    <div className={styles.container}>
+      <div className={styles.recorder}>
+        <button onClick={changeRecordingStatus} type="button">
+          {recording ? 'Stop ' : 'Start '}
+          Recording
+        </button>
+        <audio controls src={mediaBlobUrl || ''} type="audio/wav">
+          <track kind="captions" />
+        </audio>
+        <button onClick={deleteRecording} type="button">
+          Delete Recording
+        </button>
+      </div>
+      <div className={styles.timer}>
+        Time left:
+        {timeLeft}
+      </div>
     </div>
   );
 };
