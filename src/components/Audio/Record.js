@@ -3,6 +3,7 @@ import { useReactMediaRecorder } from 'react-media-recorder';
 
 const Record = () => {
   const [time, setTime] = useState();
+
   const {
     status,
     startRecording,
@@ -17,9 +18,12 @@ const Record = () => {
     } else {
       startRecording();
       if (time) clearTimeout(time);
-      setTime(setTimeout(() => {
-        stopRecording();
-      }, 10000));
+
+      setTime(
+        setTimeout(() => {
+          stopRecording();
+        }, 10000),
+      );
     }
   };
 
