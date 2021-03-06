@@ -1,8 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useReactMediaRecorder } from 'react-media-recorder';
 
+/**
+ * if user is recording disable playback and vice versa
+ */
+
 const Record = () => {
-  const [time, setTime] = useState();
+  const [intervalVal, setIntervalVal] = useState();
+  const [timeLeft, setTimeLeft] = useState(10);
   const {
     status,
     startRecording,
@@ -10,20 +15,38 @@ const Record = () => {
     mediaBlobUrl,
     clearBlobUrl,
   } = useReactMediaRecorder({ video: false });
+  const recording = status === 'recording';
+
+  const abortRecording = () => {
+    setTimeLeft(10);
+    clearInterval(intervalVal);
+    stopRecording();
+  };
+
+  const calculateTimeRemaining = () => {
+    setTimeLeft((prevTime) => prevTime - 1);
+  };
 
   const changeRecordingStatus = () => {
-    if (status === 'recording') {
-      stopRecording();
+    if (recording) {
+      abortRecording();
     } else {
       startRecording();
-      if (time) clearTimeout(time);
-      setTime(setTimeout(() => {
-        stopRecording();
-      }, 10000));
+      setIntervalVal(setInterval(() => {
+        calculateTimeRemaining();
+      }, 1000));
     }
   };
 
-  useEffect(() => () => clearTimeout(time), []);
+  useEffect(() => {
+    if (timeLeft === 0) {
+      abortRecording();
+    }
+  });
+
+  useEffect(() => () => {
+    clearInterval(intervalVal);
+  }, []);
 
   const deleteRecording = () => {
     clearBlobUrl();
@@ -32,7 +55,7 @@ const Record = () => {
   return (
     <div>
       <button onClick={changeRecordingStatus} type="button">
-        {status === 'recording' ? 'Stop' : 'Start'}
+        {recording ? 'Stop' : 'Start'}
         Recording
       </button>
       <audio controls src={mediaBlobUrl || ''}>
@@ -41,6 +64,10 @@ const Record = () => {
       <button onClick={deleteRecording} type="button">
         Delete Recording
       </button>
+      <span>
+        Time left:
+        {timeLeft}
+      </span>
     </div>
   );
 };
