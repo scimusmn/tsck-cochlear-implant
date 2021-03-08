@@ -1,3 +1,4 @@
+/* eslint import/no-unresolved: [2, { ignore: ['\.scss$'] }] */
 import React, { useState, useEffect } from 'react';
 import { useReactMediaRecorder } from 'react-media-recorder';
 import * as styles from './audio.module.scss';
@@ -6,9 +7,11 @@ import * as styles from './audio.module.scss';
  * one possible solution: delete blob when recording starts
  */
 
+const MAX_RECORDING_TIME = 10;
+
 const Record = () => {
   const [intervalVal, setIntervalVal] = useState();
-  const [timeLeft, setTimeLeft] = useState(10);
+  const [timeLeft, setTimeLeft] = useState(MAX_RECORDING_TIME);
 
   const {
     status,
@@ -38,7 +41,7 @@ const Record = () => {
       abortRecording();
     } else {
       deleteRecording();
-      setTimeLeft(10);
+      setTimeLeft(MAX_RECORDING_TIME);
       startRecording();
       setIntervalVal(setInterval(calculateTimeRemaining, 1000));
     }

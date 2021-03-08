@@ -1,6 +1,6 @@
 import React from 'react';
 
-import NoMatch from '@components/noMatch';
+import NoMatch from '@components/NoMatch';
 
 const NotFoundPage = () => <NoMatch />;
 
