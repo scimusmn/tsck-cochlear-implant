@@ -2,8 +2,8 @@ import React from 'react';
 // import { Link } from 'gatsby';
 
 // import Info from '@components/audio/info';
-import Record from '@components/audio/record';
-import Samples from '@components/audio/samples';
+import Record from '@components/Audio/Record';
+import Samples from '@components/Audio/Samples';
 
 const IndexPage = () => (
   <>
