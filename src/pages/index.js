@@ -1,13 +1,21 @@
-import React from 'react';
-import { Link } from 'gatsby';
+import React, { useState } from 'react';
 
-import Home from '@components/Home';
+// import Info from '@components/Audio/Info';
+import Record from '@components/Audio/Record';
+import Samples from '@components/Audio/Samples';
 
-const IndexPage = () => (
-  <>
-    <Home />
-    <Link to="/second-page">Test link</Link>
-  </>
-);
+import AudioContext from '../AudioContext';
+
+const IndexPage = () => {
+  const [audio, setAudio] = useState();
+
+  return (
+    <AudioContext.Provider value={{ audio, setAudio }}>
+      {/* <Info /> */}
+      <Record />
+      <Samples />
+    </AudioContext.Provider>
+  );
+};
 
 export default IndexPage;
