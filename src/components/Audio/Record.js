@@ -1,17 +1,15 @@
 /* eslint import/no-unresolved: [2, { ignore: ['\.scss$'] }] */
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useReactMediaRecorder } from 'react-media-recorder';
 import * as styles from './audio.module.scss';
-/**
- * if user is recording disable playback and vice versa
- * one possible solution: delete blob when recording starts
- */
+import AudioContext from '../../AudioContext';
 
 const MAX_RECORDING_TIME = 10;
 
 const Record = () => {
   const [intervalVal, setIntervalVal] = useState();
   const [timeLeft, setTimeLeft] = useState(MAX_RECORDING_TIME);
+  const { audio = {}, setAudio } = useContext(AudioContext);
 
   const {
     status,
@@ -20,8 +18,6 @@ const Record = () => {
     mediaBlobUrl,
     clearBlobUrl,
   } = useReactMediaRecorder({ video: false });
-
-  const recording = status === 'recording';
 
   const calculateTimeRemaining = () => {
     setTimeLeft((prevTime) => prevTime - 1);
@@ -37,7 +33,7 @@ const Record = () => {
   };
 
   const changeRecordingStatus = () => {
-    if (recording) {
+    if (audio.recording) {
       abortRecording();
     } else {
       deleteRecording();
@@ -53,6 +49,10 @@ const Record = () => {
     }
   }, [timeLeft]);
 
+  useEffect(() => {
+    setAudio({ recording: status === 'recording' });
+  }, [status]);
+
   useEffect(
     () => () => {
       clearInterval(intervalVal);
@@ -64,7 +64,7 @@ const Record = () => {
     <div className={styles.container}>
       <div className={styles.recorder}>
         <button onClick={changeRecordingStatus} type="button">
-          {recording ? 'Stop ' : 'Start '}
+          {audio.recording ? 'Stop ' : 'Start '}
           Recording
         </button>
         <audio controls src={mediaBlobUrl || ''} type="audio/wav">
