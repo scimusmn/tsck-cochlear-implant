@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-// import { Link } from 'gatsby';
 
-// import Info from '@components/audio/info';
+// import Info from '@components/Audio/Info';
 import Record from '@components/Audio/Record';
 import Samples from '@components/Audio/Samples';
 

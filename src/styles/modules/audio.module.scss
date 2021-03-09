@@ -12,9 +12,17 @@
 }
 
 .timer {
-  margin-top: 2rem;
+  margin-top: 1rem;
 }
 
 .sample {
   margin-right: 1rem;
+}
+
+.buttons-list {
+  margin: 1.5rem 0;
+
+  button:disabled {
+    opacity: 0.5;
+  }
 }

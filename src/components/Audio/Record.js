@@ -1,7 +1,7 @@
 /* eslint import/no-unresolved: [2, { ignore: ['\.scss$'] }] */
 import React, { useState, useEffect, useContext } from 'react';
 import { useReactMediaRecorder } from 'react-media-recorder';
-import * as styles from './audio.module.scss';
+import * as styles from '@styles/modules/audio.module.scss';
 import AudioContext from '../../AudioContext';
 
 const MAX_RECORDING_TIME = 10;
@@ -75,8 +75,13 @@ const Record = () => {
         </button>
       </div>
       <div className={styles.timer}>
-        Time left:
-        {timeLeft}
+        timer:
+        {` ${timeLeft}`}
+      </div>
+
+      <div className={styles.status}>
+        status:
+        {` ${status}`}
       </div>
     </div>
   );
