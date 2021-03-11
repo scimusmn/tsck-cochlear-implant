@@ -1,0 +1,28 @@
+.container {
+  padding: 4rem;
+}
+
+.recorder {
+  align-items: center;
+  display: flex;
+
+  audio {
+    margin: 0 2rem;
+  }
+}
+
+.timer {
+  margin-top: 1rem;
+}
+
+.sample {
+  margin-right: 1rem;
+}
+
+.buttons-list {
+  margin: 1.5rem 0;
+
+  button:disabled {
+    opacity: 0.5;
+  }
+}
