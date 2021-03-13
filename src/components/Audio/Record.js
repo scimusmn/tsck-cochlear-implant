@@ -1,8 +1,9 @@
 /* eslint import/no-unresolved: [2, { ignore: ['\.scss$'] }] */
 import React, { useState, useEffect, useContext } from 'react';
 import { useReactMediaRecorder } from 'react-media-recorder';
+import { FormattedMessage } from 'react-intl';
 import * as styles from '@styles/modules/audio.module.scss';
-import AudioContext from '../../AudioContext';
+import AudioContext from '../../context/AudioContext';
 
 const MAX_RECORDING_TIME = 10;
 
@@ -62,6 +63,7 @@ const Record = () => {
 
   return (
     <div className={styles.container}>
+      <FormattedMessage id="hear.voice" />
       <div className={styles.recorder}>
         <button onClick={changeRecordingStatus} type="button">
           {audio.recording ? 'Stop ' : 'Start '}
