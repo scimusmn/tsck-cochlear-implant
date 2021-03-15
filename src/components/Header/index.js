@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-
+import * as styles from '@styles/modules/header.module.scss';
 import { LOCALES } from '../../messages/locales';
 import LocaleContext from '../../context/LocaleContext';
 
@@ -12,7 +12,7 @@ const Header = () => {
   };
 
   return (
-    <div>
+    <div className={styles.container}>
       <button onClick={toggleLanguage} type="button">Toggle Language</button>
     </div>
   );

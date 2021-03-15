@@ -7,10 +7,13 @@ import AudioContext from '../../context/AudioContext';
 import bird from '../../audios/bird.wav';
 import cat from '../../audios/cat.wav';
 import frog from '../../audios/frog.wav';
+import LocaleContext from '../../context/LocaleContext';
+import { LOCALES } from '../../messages/locales';
 
 const Samples = () => {
   const [sample, setSample] = useState(null);
   const { audio = {} } = useContext(AudioContext);
+  const { locale } = useContext(LocaleContext);
 
   const playAudio = (audioFile) => {
     if (sample) sample.pause();
@@ -26,8 +29,8 @@ const Samples = () => {
   };
 
   return (
-    <div className={styles.container}>
-      <FormattedMessage id="hear.sample" />
+    <div className={styles.samplesContainer}>
+      <p className={`${locale === LOCALES.ARABIC ? styles.arabic : styles.english}`}><FormattedMessage id="hear.sample" /></p>
       <h5>Sample Audios</h5>
 
       <div className={styles.buttonsList}>
