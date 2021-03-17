@@ -88,6 +88,7 @@ const Record = () => {
         status:
         {` ${status}`}
       </div>
+      <hr />
     </div>
   );
 };
