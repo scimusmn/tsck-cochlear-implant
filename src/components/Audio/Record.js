@@ -1,11 +1,11 @@
 /* eslint import/no-unresolved: [2, { ignore: ['\.scss$'] }] */
 import React, { useState, useEffect, useContext } from 'react';
 import { useReactMediaRecorder } from 'react-media-recorder';
-import { FormattedMessage } from 'react-intl';
+// import { FormattedMessage } from 'react-intl';
 import * as styles from '@styles/modules/audio.module.scss';
 import AudioContext from '../../context/AudioContext';
-import LocaleContext from '../../context/LocaleContext';
-import { LOCALES } from '../../messages/locales';
+// import LocaleContext from '../../context/LocaleContext';
+// import { LOCALES } from '../../messages/locales';
 
 const MAX_RECORDING_TIME = 10;
 
@@ -13,7 +13,7 @@ const Record = () => {
   const [intervalVal, setIntervalVal] = useState();
   const [timeLeft, setTimeLeft] = useState(MAX_RECORDING_TIME);
   const { audio = {}, setAudio } = useContext(AudioContext);
-  const { locale } = useContext(LocaleContext);
+  // const { locale } = useContext(LocaleContext);
 
   const {
     status,
@@ -66,7 +66,10 @@ const Record = () => {
 
   return (
     <div className={styles.recordingContainer}>
-      <p className={`${locale === LOCALES.ARABIC ? styles.arabic : styles.english}`}><FormattedMessage id="hear.voice" /></p>
+      {/* <p className={`${locale === LOCALES.ARABIC ? styles.arabic : styles.english}`}>
+        <FormattedMessage id="hear.voice" />
+      </p> */}
+      <p>Hear your voice through simulated cochlear implant</p>
       <div className={styles.recorder}>
         <button onClick={changeRecordingStatus} type="button">
           {audio.recording ? 'Stop ' : 'Start '}
