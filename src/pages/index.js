@@ -1,20 +1,28 @@
 import React, { useState } from 'react';
+import { IntlProvider } from 'react-intl';
 
-// import Info from '@components/Audio/Info';
-import Record from '@components/Audio/Record';
-import Samples from '@components/Audio/Samples';
+import Header from '@components/Header';
+import AudioContainer from '@components/Audio';
 
-import AudioContext from '../AudioContext';
+import { LOCALES } from '../content/locales';
+import content from '../content/languages';
+
+import AudioContext from '../context/AudioContext';
+import LocaleContext from '../context/LocaleContext';
 
 const IndexPage = () => {
+  const [locale, setLocale] = useState(LOCALES.ARABIC);
   const [audio, setAudio] = useState();
 
   return (
-    <AudioContext.Provider value={{ audio, setAudio }}>
-      {/* <Info /> */}
-      <Record />
-      <Samples />
-    </AudioContext.Provider>
+    <LocaleContext.Provider value={{ locale, setLocale }}>
+      <AudioContext.Provider value={{ audio, setAudio }}>
+        <IntlProvider locale={locale} messages={content[locale]}>
+          <Header />
+          <AudioContainer />
+        </IntlProvider>
+      </AudioContext.Provider>
+    </LocaleContext.Provider>
   );
 };
 
