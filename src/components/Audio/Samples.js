@@ -1,19 +1,15 @@
 /* eslint import/no-unresolved: [2, { ignore: ['\.scss$'] }] */
 import React, { useState, useContext } from 'react';
-// import { FormattedMessage } from 'react-intl';
 import * as styles from '@styles/modules/audio.module.scss';
 import AudioContext from '../../context/AudioContext';
 
 import bird from '../../audios/bird.wav';
 import cat from '../../audios/cat.wav';
 import frog from '../../audios/frog.wav';
-// import LocaleContext from '../../context/LocaleContext';
-// import { LOCALES } from '../../messages/locales';
 
 const Samples = () => {
   const [sample, setSample] = useState(null);
   const { audio = {} } = useContext(AudioContext);
-  // const { locale } = useContext(LocaleContext);
 
   const playAudio = (audioFile) => {
     if (sample) sample.pause();
@@ -30,9 +26,6 @@ const Samples = () => {
 
   return (
     <div className={styles.samplesContainer}>
-      {/* <p className={`${locale === LOCALES.ARABIC ? styles.arabic : styles.english}`}>
-        <FormattedMessage id="hear.sample" />
-      </p> */}
       <p>Hear other sounds through simulated cochlear implant</p>
       <h5>Sample Audios</h5>
 

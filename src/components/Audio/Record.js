@@ -1,11 +1,8 @@
 /* eslint import/no-unresolved: [2, { ignore: ['\.scss$'] }] */
 import React, { useState, useEffect, useContext } from 'react';
 import { useReactMediaRecorder } from 'react-media-recorder';
-// import { FormattedMessage } from 'react-intl';
 import * as styles from '@styles/modules/audio.module.scss';
 import AudioContext from '../../context/AudioContext';
-// import LocaleContext from '../../context/LocaleContext';
-// import { LOCALES } from '../../messages/locales';
 
 const MAX_RECORDING_TIME = 10;
 

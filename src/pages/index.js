@@ -4,8 +4,8 @@ import { IntlProvider } from 'react-intl';
 import Header from '@components/Header';
 import AudioContainer from '@components/Audio';
 
-import { LOCALES } from '../messages/locales';
-import messages from '../messages/languages';
+import { LOCALES } from '../content/locales';
+import content from '../content/languages';
 
 import AudioContext from '../context/AudioContext';
 import LocaleContext from '../context/LocaleContext';
@@ -17,7 +17,7 @@ const IndexPage = () => {
   return (
     <LocaleContext.Provider value={{ locale, setLocale }}>
       <AudioContext.Provider value={{ audio, setAudio }}>
-        <IntlProvider locale={locale} messages={messages[locale]}>
+        <IntlProvider locale={locale} messages={content[locale]}>
           <Header />
           <AudioContainer />
         </IntlProvider>
