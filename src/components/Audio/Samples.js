@@ -1,7 +1,7 @@
 /* eslint import/no-unresolved: [2, { ignore: ['\.scss$'] }] */
 import React, { useState, useContext } from 'react';
 import * as styles from '@styles/modules/audio.module.scss';
-import AudioContext from '../../AudioContext';
+import AudioContext from '../../context/AudioContext';
 
 import bird from '../../audios/bird.wav';
 import cat from '../../audios/cat.wav';
@@ -25,7 +25,8 @@ const Samples = () => {
   };
 
   return (
-    <div className={styles.container}>
+    <div className={styles.samplesContainer}>
+      <p>Hear other sounds through simulated cochlear implant</p>
       <h5>Sample Audios</h5>
 
       <div className={styles.buttonsList}>

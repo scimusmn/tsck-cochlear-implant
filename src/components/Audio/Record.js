@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useReactMediaRecorder } from 'react-media-recorder';
 import * as styles from '@styles/modules/audio.module.scss';
-import AudioContext from '../../AudioContext';
+import AudioContext from '../../context/AudioContext';
 
 const MAX_RECORDING_TIME = 10;
 
@@ -10,6 +10,7 @@ const Record = () => {
   const [intervalVal, setIntervalVal] = useState();
   const [timeLeft, setTimeLeft] = useState(MAX_RECORDING_TIME);
   const { audio = {}, setAudio } = useContext(AudioContext);
+  // const { locale } = useContext(LocaleContext);
 
   const {
     status,
@@ -61,7 +62,11 @@ const Record = () => {
   );
 
   return (
-    <div className={styles.container}>
+    <div className={styles.recordingContainer}>
+      {/* <p className={`${locale === LOCALES.ARABIC ? styles.arabic : styles.english}`}>
+        <FormattedMessage id="hear.voice" />
+      </p> */}
+      <p>Hear your voice through simulated cochlear implant</p>
       <div className={styles.recorder}>
         <button onClick={changeRecordingStatus} type="button">
           {audio.recording ? 'Stop ' : 'Start '}
@@ -83,6 +88,7 @@ const Record = () => {
         status:
         {` ${status}`}
       </div>
+      <hr />
     </div>
   );
 };
