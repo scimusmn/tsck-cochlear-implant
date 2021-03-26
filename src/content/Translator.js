@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { FormattedMessage } from 'react-intl';
+
 import * as styles from '@styles/modules/audio.module.scss';
+
+import LocaleContext from '../context/LocaleContext';
+
 import { LOCALES } from './locales';
 
-const Translator = ({ type, locale, message }) => {
-  console.log('translate', locale, message);
+const Translator = ({ type, message }) => {
+  const { locale } = useContext(LocaleContext);
+
   return (
     <div
       className={`

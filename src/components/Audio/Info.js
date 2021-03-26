@@ -1,16 +1,13 @@
-import React, { createRef, useContext, useEffect } from 'react';
+import React, { createRef, useEffect } from 'react';
 
 import * as styles from '@styles/modules/audio.module.scss';
 
 import SecondaryInfo from '@components/SecondaryInfo';
 
-import LocaleContext from '../../context/LocaleContext';
-
 import Translator from '../../content/Translator';
 
 const Info = () => {
   const ref = createRef();
-  const { locale } = useContext(LocaleContext);
 
   useEffect(() => {
     if (ref.current) {
@@ -29,8 +26,8 @@ const Info = () => {
   return (
     <div className={styles.infoContainer}>
       <SecondaryInfo ref={ref} />
-      <Translator type="heading" locale={locale} message="info.heading" />
-      <Translator type="detail" locale={locale} message="info.detail" />
+      <Translator type="heading" message="info.heading" />
+      <Translator type="detail" message="info.detail" />
       <button onClick={openModal} type="button">Learn more</button>
     </div>
   );
