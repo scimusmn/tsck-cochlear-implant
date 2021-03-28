@@ -4,15 +4,18 @@ import { IntlProvider } from 'react-intl';
 import Header from '@components/Header';
 import AudioContainer from '@components/Audio';
 
-import { LOCALES } from '../content/locales';
-import content from '../content/languages';
+import { LOCALES } from '@content/locales';
+import content from '@content/languages';
 
-import AudioContext from '../context/AudioContext';
-import LocaleContext from '../context/LocaleContext';
+import AudioContext from '@context/AudioContext';
+import LocaleContext from '@context/LocaleContext';
+
+import useScreenInactivity from '@utils/hooks/useScreenInactivity';
 
 const IndexPage = () => {
   const [locale, setLocale] = useState(LOCALES.ARABIC);
   const [audio, setAudio] = useState();
+  useScreenInactivity();
 
   return (
     <LocaleContext.Provider value={{ locale, setLocale }}>

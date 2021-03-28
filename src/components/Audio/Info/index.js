@@ -1,10 +1,10 @@
 import React, { createRef, useEffect } from 'react';
 
-import * as styles from '@styles/modules/audio.module.scss';
+import Translator from '@content/Translator';
 
-import SecondaryInfo from '@components/SecondaryInfo';
+import * as styles from '@styles/modules/secondaryinfo.module.scss';
 
-import Translator from '../../content/Translator';
+import SecondaryInfo from './SecondaryInfo';
 
 const Info = () => {
   const ref = createRef();
@@ -24,11 +24,12 @@ const Info = () => {
   };
 
   return (
-    <div className={styles.infoContainer}>
+    <div className={styles.container}>
       <SecondaryInfo ref={ref} />
       <Translator type="heading" message="info.heading" />
+      <hr />
       <Translator type="detail" message="info.detail" />
-      <button onClick={openModal} type="button">Learn more</button>
+      <button className={styles.button} onClick={openModal} type="button">Learn more</button>
     </div>
   );
 };

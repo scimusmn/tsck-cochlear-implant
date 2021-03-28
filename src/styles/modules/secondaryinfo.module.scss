@@ -1,4 +1,14 @@
 .container {
+  display: flex;
+  flex-direction: column;
+  grid-area: 1/2/span 2/span 1;
+  justify-content: center;
+  padding: 0 3rem;
+  // background-color: antiquewhite;
+}
+
+.secondaryContainer {
+  background: #ecececd1;
   height: 100%;
   left: 0;
   padding: 2rem 7em;
@@ -8,14 +18,14 @@
   z-index: 1;
 }
 
-.image {
-  background: url("https://s3-alpha-sig.figma.com/img/9daa/a9a3/9dc502456c6c20411b8944ee0fd8b780?Expires=1617580800&Signature=FoKGV1GW0-iE5qFciz6MbkD~YWDSEeQIMz4ug5rk-9ri4ux8n7jDvnqqbSk73MFDsgztnEhr72VlOf19pmD5H7Q36VtO64HCIbi0SRXaaYSEmMif0m22gmyppkk0iyFzVcEaVXr8W~i0wjgA5v345-rS6yVGseqX47o7ixt3ea9KNf6b~Uj~3~1LtdVe2cRxPzQjczrqVJsWG1PSpT2r5CotwWLpUu~W1SKsiHaXWJuIrI8a~~JCQIWF3znb8f9shqxYzvXO6pvPBm9qcLCyyVYOqSVtOqlmSqt25rQRCepimZauNctKV4Njl~HIPImbvyvmevOTGHoLM47DsxoyUQ__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA");
-  background-repeat: no-repeat;
-  background-size: cover;
-  border: 1px solid; // temporary
-  border-radius: 14px;
-  height: inherit;
+.imageContainer {
   position: relative;
+}
+
+.image {
+  border: 1px solid; // temporary
+  border-radius: 15px;
+  max-width: 100%;
 }
 
 .cross {
@@ -26,4 +36,9 @@
   right: 0;
   text-align: center;
   width: 25px;
+}
+
+.button {
+  margin: 1rem 0;
+  width: 7rem;
 }

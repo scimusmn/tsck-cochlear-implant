@@ -1,11 +1,13 @@
 /* eslint import/no-unresolved: [2, { ignore: ['\.scss$'] }] */
 import React, { useState, useContext } from 'react';
-import * as styles from '@styles/modules/audio.module.scss';
-import AudioContext from '../../context/AudioContext';
 
-import bird from '../../audios/bird.wav';
-import cat from '../../audios/cat.wav';
-import frog from '../../audios/frog.wav';
+import AudioContext from '@context/AudioContext';
+
+import * as styles from '@styles/modules/audio.module.scss';
+
+import bird from '@utils/audios/bird.wav';
+import cat from '@utils/audios/cat.wav';
+import frog from '@utils/audios/frog.wav';
 
 const Samples = () => {
   const [sample, setSample] = useState(null);
