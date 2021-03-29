@@ -1,54 +1,55 @@
 import { useState, useEffect } from 'react';
 
-const WAIT = 10000;
-const EVENTS = ['mousemove', 'keypress'];
+const WAIT = 60000;
+const EVENTS = ['click', 'keypress', 'mousemove'];
 
 const useScreenInactivity = () => {
   const [intervalVal, setIntervalVal] = useState();
+  // eslint-disable-next-line no-unused-vars
   const [time, setTime] = useState(
     new Date().getTime(),
   );
 
-  const updateTime = () => {
-    setTime(new Date().getTime());
-    console.log('mouse moved', time);
+  const checkRefresh = () => {
+    setTime((currentTime) => {
+      if (new Date().getTime() - currentTime >= WAIT) {
+        window.location.reload(true);
+      }
+      return currentTime;
+    });
   };
 
-  // const debounce = (func, wait) => {
-  //   let timeout;
+  const updateTime = () => {
+    setTime(new Date().getTime());
+    setIntervalVal((currentIntervalVal) => {
+      clearInterval(currentIntervalVal);
+      return setInterval(checkRefresh, WAIT);
+    });
+  };
 
-  //   return function executedFunction(...args) {
-  //     const later = () => {
-  //       clearTimeout(timeout);
-  //       func(...args);
-  //     };
-
-  //     clearTimeout(timeout);
-  //     timeout = setTimeout(later, wait);
-  //   };
-  // };
+  const throttle = (callback, limit) => {
+    let wait = false;
+    return function executedFunction(...args) {
+      if (!wait) {
+        callback(...args);
+        wait = true;
+        setTimeout(() => { wait = false; }, limit);
+      }
+    };
+  };
 
   useEffect(() => {
-    setIntervalVal(setInterval(() => {
-      setTime((currentTime) => {
-        console.log('time to check', new Date().getTime() - currentTime);
-        if (new Date().getTime() - currentTime >= WAIT) {
-          console.log('5 seconds up!');
-          // window.location.reload(true);
-        }
-        return currentTime;
-      });
-    }, WAIT));
+    setIntervalVal(setInterval(checkRefresh, WAIT));
 
-    // setInterval(() => console.log('diff', new Date().getTime() - time, time), 1000);
-
-    EVENTS.forEach((event) => window.addEventListener(event, updateTime));
+    EVENTS.forEach((event) => window.addEventListener(event, throttle(updateTime, 300)));
 
     return () => {
-      EVENTS.forEach((event) => window.removeEventListener(event, updateTime));
+      EVENTS.forEach((event) => window.removeEventListener(event, throttle(updateTime, 300)));
       clearInterval(intervalVal);
     };
   }, []);
+
+  return null;
 };
 
 export default useScreenInactivity;
