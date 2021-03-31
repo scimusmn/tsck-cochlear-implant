@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 
 import * as styles from '@styles/modules/audio.module.scss';
@@ -23,3 +24,13 @@ const Translator = ({ type, message }) => {
 };
 
 export default Translator;
+
+Translator.propTypes = {
+  type: PropTypes.string,
+  message: PropTypes.string,
+};
+
+Translator.defaultProps = {
+  type: 'detail',
+  message: '',
+};

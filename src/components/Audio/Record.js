@@ -10,7 +10,6 @@ const Record = () => {
   const [intervalVal, setIntervalVal] = useState();
   const [timeLeft, setTimeLeft] = useState(MAX_RECORDING_TIME);
   const { audio = {}, setAudio } = useContext(AudioContext);
-  // const { locale } = useContext(LocaleContext);
 
   const {
     status,
@@ -63,9 +62,6 @@ const Record = () => {
 
   return (
     <div className={styles.recordingContainer}>
-      {/* <p className={`${locale === LOCALES.ARABIC ? styles.arabic : styles.english}`}>
-        <FormattedMessage id="hear.voice" />
-      </p> */}
       <p>Hear your voice through simulated cochlear implant</p>
       <div className={styles.recorder}>
         <button onClick={changeRecordingStatus} type="button">
