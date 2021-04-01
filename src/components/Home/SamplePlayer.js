@@ -1,16 +1,15 @@
-import React, { useState, useContext } from 'react';
-/* eslint object-curly-newline: ["error", "never"] */
-import { Card, CardBody, ButtonGroup, Button } from 'reactstrap';
-
-import AudioContext from '@context/AudioContext';
-
+import React, { useState } from 'react';
+import { FormattedMessage } from 'react-intl';
+import { Card, CardBody, Button } from 'reactstrap';
+import { useAudio } from '@context/AudioContext';
+// import all sample audios
 import bird from '@utils/audios/bird.wav';
 import cat from '@utils/audios/cat.wav';
 import frog from '@utils/audios/frog.wav';
 
 const SamplePlayer = () => {
   const [sample, setSample] = useState(null);
-  const { audio = {} } = useContext(AudioContext);
+  const { audio } = useAudio();
 
   const playAudio = (audioFile) => {
     if (sample) sample.pause();
@@ -27,8 +26,10 @@ const SamplePlayer = () => {
   return (
     <Card className="mt-4">
       <CardBody>
-        <p>Hear other sounds through simulated cochlear implant</p>
-        <ButtonGroup>
+        <p className="formatted">
+          <FormattedMessage id="sample.info" />
+        </p>
+        <div>
           <Button
             color="primary"
             outline
@@ -56,7 +57,7 @@ const SamplePlayer = () => {
           >
             Sample 3
           </Button>
-        </ButtonGroup>
+        </div>
         <div className="mt-4">
           now playing:
           {` ${sample ? sample.src : sample}`}

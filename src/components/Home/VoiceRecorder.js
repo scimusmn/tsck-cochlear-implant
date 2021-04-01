@@ -1,14 +1,15 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
+import { FormattedMessage } from 'react-intl';
 import { Card, CardBody, Button } from 'reactstrap';
 import { useReactMediaRecorder } from 'react-media-recorder';
-import AudioContext from '@context/AudioContext';
+import { useAudio } from '@context/AudioContext';
 
 const MAX_RECORDING_TIME = 10;
 
 const VoiceRecorder = () => {
   const [intervalVal, setIntervalVal] = useState();
   const [timeLeft, setTimeLeft] = useState(MAX_RECORDING_TIME);
-  const { audio = {}, setAudio } = useContext(AudioContext);
+  const { audio, setAudio } = useAudio();
 
   const {
     status,
@@ -62,7 +63,9 @@ const VoiceRecorder = () => {
   return (
     <Card>
       <CardBody>
-        <p>Hear your voice through simulated cochlear implant</p>
+        <p className="formatted">
+          <FormattedMessage id="recorder.info" />
+        </p>
         <div className="d-flex align-items-center">
           <Button
             color={audio.recording ? 'warning' : 'success'}
