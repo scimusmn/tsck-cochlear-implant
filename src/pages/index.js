@@ -1,28 +1,23 @@
 import React, { useState } from 'react';
-import { IntlProvider } from 'react-intl';
-
-import Header from '@components/Header';
-import AudioContainer from '@components/Audio';
-
-import { LOCALES } from '../content/locales';
-import content from '../content/languages';
-
-import AudioContext from '../context/AudioContext';
-import LocaleContext from '../context/LocaleContext';
+import App from '@components/App';
+import Home from '@components/Home';
+import AudioContext from '@context/AudioContext';
+import useScreenInactivity from '@utils/hooks/useScreenInactivity';
+import { LocaleProvider } from '@context/LocaleContext';
 
 const IndexPage = () => {
-  const [locale, setLocale] = useState(LOCALES.ARABIC);
   const [audio, setAudio] = useState();
 
+  useScreenInactivity();
+
   return (
-    <LocaleContext.Provider value={{ locale, setLocale }}>
+    <LocaleProvider>
       <AudioContext.Provider value={{ audio, setAudio }}>
-        <IntlProvider locale={locale} messages={content[locale]}>
-          <Header />
-          <AudioContainer />
-        </IntlProvider>
+        <App>
+          <Home />
+        </App>
       </AudioContext.Provider>
-    </LocaleContext.Provider>
+    </LocaleProvider>
   );
 };
 

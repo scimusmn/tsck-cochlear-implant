@@ -1,65 +1,56 @@
-.container {
-  // background-color: lightskyblue;
-  display: grid;
-  grid-template-columns: 55% 45%;
-}
+// .container {
+//   // background-color: lightskyblue;
+//   display: grid;
+//   grid-template-columns: 55% 45%;
+// }
 
-.arabic {
-  text-align: end;
-}
+// .arabic {
+//   text-align: end;
+// }
 
-.english {
-  text-align: start;
-}
+// .english {
+//   text-align: start;
+// }
 
-.heading {
-  font-size: 1.75rem;
-}
+// .heading {
+//   font-size: 1.75rem;
+// }
 
-.detail {
-  font-size: 1rem;
-}
+// .detail {
+//   font-size: 1rem;
+// }
 
-.recordingContainer {
-  // background-color: lavender;
-  padding: 0 4rem;
-}
+// .recordingContainer {
+//   // background-color: lavender;
+//   padding: 0 4rem;
+// }
 
-.recorder {
-  align-items: center;
-  display: flex;
+// .recorder {
+//   align-items: center;
+//   display: flex;
 
-  audio {
-    margin: 0 2rem;
-  }
-}
+//   audio {
+//     margin: 0 2rem;
+//   }
+// }
 
-.timer {
-  margin-top: 1rem;
-}
+// .timer {
+//   margin-top: 1rem;
+// }
 
-.sample {
-  margin-right: 1rem;
-}
+// .sample {
+//   margin-right: 1rem;
+// }
 
-.buttons-list {
-  margin: 1.5rem 0;
+// .buttons-list {
+//   margin: 1.5rem 0;
 
-  button:disabled {
-    opacity: 0.5;
-  }
-}
+//   button:disabled {
+//     opacity: 0.5;
+//   }
+// }
 
-.samplesContainer {
-  // background-color: pink;
-  padding: 1rem 4rem 0 4em;
-}
-
-.infoContainer {
-  display: flex;
-  flex-direction: column;
-  grid-area: 1/2/span 2/span 1;
-  justify-content: center;
-  padding: 0 3rem;
-  // background-color: antiquewhite;
-}
+// .samplesContainer {
+//   // background-color: pink;
+//   padding: 1rem 4rem 0 4em;
+// }
