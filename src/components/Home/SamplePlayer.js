@@ -45,6 +45,7 @@ const SamplePlayer = () => {
             disabled={audio.recording}
             onClick={() => playAudio(cat)}
             type="button"
+            className="mx-2"
           >
             Sample 2
           </Button>
