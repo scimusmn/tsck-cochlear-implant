@@ -33,9 +33,10 @@ const App = ({ children }) => {
 
   useEffect(() => {
     setMetrics();
-    setInterval(() => {
+    const interval = setInterval(() => {
       setMetrics();
     }, 1000);
+    return () => clearInterval(interval);
   }, []);
 
   return (
