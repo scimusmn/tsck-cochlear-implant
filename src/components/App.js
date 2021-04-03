@@ -24,6 +24,7 @@ const App = ({ children }) => {
     timeout,
     onActive: handleOnActive,
     onIdle: handleOnIdle,
+    startOnMount: false,
   });
 
   const setMetrics = () => {
