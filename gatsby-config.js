@@ -1,3 +1,4 @@
+/* eslint-disable quotes */
 /* eslint-disable no-useless-escape */
 require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
@@ -44,8 +45,8 @@ module.exports = {
       resolve: 'gatsby-plugin-google-fonts',
       options: {
         fonts: [
-          // eslint-disable-next-line quotes
           `montserrat\:300,400,400i,500,700`,
+          `tajawal\:300,400,400i,500,700`,
         ],
         display: 'swap',
       },

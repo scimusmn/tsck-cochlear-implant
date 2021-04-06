@@ -5,7 +5,7 @@ body {
 }
 
 body {
-  font-family: $smm-default-font;
+  font-family: $smm-default-font-en;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
 }
@@ -13,6 +13,10 @@ body {
 button {
   border-color: transparent;
   border-radius: 5px;
+}
+
+.ar-qa {
+  font-family: $smm-default-font-ar;
 }
 
 .ar-qa .formatted {
