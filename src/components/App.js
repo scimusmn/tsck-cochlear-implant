@@ -1,49 +1,51 @@
-import React, { useEffect, useState } from 'react';
+// import React, { useEffect, useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { useIdleTimer } from 'react-idle-timer';
 import { IntlProvider } from 'react-intl';
 import { useLocale } from '@context/LocaleContext';
+import * as styles from '@styles/modules/main.module.scss';
 import content from '@content';
 /* eslint object-curly-newline: ["error", { "multiline": true }] */
-import { Toast, ToastBody, ToastHeader, Alert } from 'reactstrap';
+// import { Toast, ToastBody, ToastHeader, Alert } from 'reactstrap';
 
 const App = ({ children }) => {
   const { locale } = useLocale();
 
-  const timeout = 60000;
-  const [remaining, setRemaining] = useState(timeout);
-  const [isIdle, setIsIdle] = useState(false);
+  const timeout = 560000;
+  // const [remaining, setRemaining] = useState(timeout);
+  // const [isIdle, setIsIdle] = useState(false);
 
-  const handleOnActive = () => setIsIdle(false);
+  // const handleOnActive = () => setIsIdle(false);
   const handleOnIdle = () => {
-    setIsIdle(true);
+    // setIsIdle(true);
     setTimeout(() => window.location.reload(), 1000);
   };
 
-  const { getRemainingTime } = useIdleTimer({
+  useIdleTimer({
     timeout,
-    onActive: handleOnActive,
+    // onActive: handleOnActive,
     onIdle: handleOnIdle,
   });
 
-  const setMetrics = () => {
-    setRemaining(getRemainingTime());
-  };
+  // const setMetrics = () => {
+  //   setRemaining(getRemainingTime());
+  // };
 
-  useEffect(() => {
-    setMetrics();
-    setInterval(() => {
-      setMetrics();
-    }, 1000);
-  }, []);
+  // useEffect(() => {
+  //   setMetrics();
+  //   setInterval(() => {
+  //     setMetrics();
+  //   }, 1000);
+  // }, []);
 
   return (
-    <>
+    <div className={styles.container}>
       <IntlProvider locale={locale} messages={content[locale]}>
         {children}
       </IntlProvider>
 
-      <div className="fixed-bottom m-5">
+      {/* <div className="fixed-bottom m-5">
         <Toast className="ml-auto">
           <ToastHeader icon="danger">Inactivity Timer</ToastHeader>
           <ToastBody>
@@ -63,8 +65,8 @@ const App = ({ children }) => {
             {isIdle && <Alert color="danger">Refreshing now...</Alert>}
           </ToastBody>
         </Toast>
-      </div>
-    </>
+      </div> */}
+    </div>
   );
 };
 

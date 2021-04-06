@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button } from 'reactstrap';
+import * as styles from '@styles/modules/info.module.scss';
 import Modal from './Modal';
 
 const SecodaryInfo = () => {
@@ -8,9 +8,9 @@ const SecodaryInfo = () => {
   return (
     <div>
       {open && <Modal setOpen={setOpen} />}
-      <Button color="info" onClick={() => setOpen(true)} type="button">
+      <button className={styles.button} color="info" onClick={() => setOpen(true)} type="button">
         Learn more
-      </Button>
+      </button>
     </div>
   );
 };

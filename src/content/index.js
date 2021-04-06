@@ -2,7 +2,7 @@ import { LOCALES } from '@context/LocaleContext';
 
 export default {
   [LOCALES.ENGLISH]: {
-    heading: 'What does a cochlear implant sound like?',
+    heading: 'How do things sound through a cochlear implant?',
     description:
       'While it is impossible to know how a world sounds through cochlear implants-without having one yourself-these simulations are researchers best attempt at mimicking audio from this technology.',
     'recorder.info': 'Hear your voice through simulated cochlear implant',

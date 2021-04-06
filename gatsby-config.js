@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-escape */
 require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 });
@@ -37,6 +38,16 @@ module.exports = {
         background_color: '#ffffff',
         theme_color: '#000000',
         display: 'minimal-ui',
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-google-fonts',
+      options: {
+        fonts: [
+          // eslint-disable-next-line quotes
+          `montserrat\:300,400,400i,500,700`,
+        ],
+        display: 'swap',
       },
     },
   ],

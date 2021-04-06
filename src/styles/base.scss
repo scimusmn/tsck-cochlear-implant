@@ -10,6 +10,11 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+button {
+  border-color: transparent;
+  border-radius: 5px;
+}
+
 .ar-qa .formatted {
   text-align: right;
 }
