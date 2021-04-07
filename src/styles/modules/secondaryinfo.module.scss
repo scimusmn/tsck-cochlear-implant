@@ -1,0 +1,43 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  grid-area: 1/2 / span 2 / span 1;
+  justify-content: center;
+  padding: 0 3rem;
+}
+
+.secondaryContainer {
+  background: #ecececd1;
+  height: 100%;
+  left: 0;
+  padding: 2rem 7em;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 9999;
+}
+
+.imageContainer {
+  position: relative;
+}
+
+.image {
+  border: 1px solid; // temporary
+  border-radius: 15px;
+  max-width: 100%;
+}
+
+.cross {
+  background: #989898;
+  border-radius: 50%;
+  height: 25px;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  width: 25px;
+}
+
+.button {
+  margin: 1rem 0;
+  width: 7rem;
+}
