@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { FormattedMessage } from 'react-intl';
 import { useLocale } from '@context/LocaleContext';
 import * as styles from '@styles/modules/lang.module.scss';
 
@@ -13,7 +14,7 @@ const LangSwitcher = () => {
   return (
     <div className={styles.container}>
       <button className={styles.button} onClick={toggleLocale} type="button">
-        Toggle Language
+        <FormattedMessage id="toggle.language" />
       </button>
     </div>
   );

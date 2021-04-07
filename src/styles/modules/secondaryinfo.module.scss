@@ -6,6 +6,11 @@
   padding: 0 3rem;
 }
 
+.button {
+  font-weight: 500;
+  line-height: 30px;
+}
+
 .secondaryContainer {
   background: #ecececd1;
   height: 100%;
@@ -35,9 +40,4 @@
   right: 0;
   text-align: center;
   width: 25px;
-}
-
-.button {
-  margin: 1rem 0;
-  width: 7rem;
 }

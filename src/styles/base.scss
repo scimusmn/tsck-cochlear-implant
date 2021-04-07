@@ -17,8 +17,12 @@ button {
 
 .ar-qa {
   font-family: $smm-default-font-ar;
-}
 
-.ar-qa .formatted {
-  text-align: right;
+  .formatted {
+    text-align: right;
+  }
+
+  .heading {
+    font-weight: 700;
+  }
 }
