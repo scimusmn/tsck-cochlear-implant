@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { FormattedMessage } from 'react-intl';
-import { Card, CardBody, Button } from 'reactstrap';
+import { Button } from 'reactstrap';
 import { useReactMediaRecorder } from 'react-media-recorder';
 import { useAudio } from '@context/AudioContext';
+import * as styles from '@styles/modules/voicerecorder.module.scss';
 
 const MAX_RECORDING_TIME = 10;
 
@@ -61,44 +62,42 @@ const VoiceRecorder = () => {
   );
 
   return (
-    <Card>
-      <CardBody>
-        <p className="formatted">
-          <FormattedMessage id="recorder.info" />
-        </p>
-        <div className="d-flex align-items-center">
-          <Button
-            color={audio.recording ? 'warning' : 'success'}
-            onClick={changeRecordingStatus}
-          >
-            {audio.recording ? 'Stop ' : 'Start '}
-            Recording
-          </Button>
-          <audio
-            controls
-            src={mediaBlobUrl || ''}
-            type="audio/wav"
-            className="mx-2"
-          >
-            <track kind="captions" />
-          </audio>
-          <Button color="danger" onClick={deleteRecording}>
-            Delete Recording
-          </Button>
-        </div>
+    <div className={styles.container}>
+      <p className="formatted">
+        <FormattedMessage id="recorder.info" />
+      </p>
+      <div className="d-flex align-items-center">
+        <Button
+          color={audio.recording ? 'warning' : 'success'}
+          onClick={changeRecordingStatus}
+        >
+          {audio.recording ? 'Stop ' : 'Start '}
+          Recording
+        </Button>
+        <audio
+          controls
+          src={mediaBlobUrl || ''}
+          type="audio/wav"
+          className="mx-2"
+        >
+          <track kind="captions" />
+        </audio>
+        <Button color="danger" onClick={deleteRecording}>
+          Delete Recording
+        </Button>
+      </div>
 
-        <div>
-          <p className="mt-4 mb-2">
-            timer:
-            {` ${timeLeft}`}
-          </p>
-          <p>
-            status:
-            {` ${status}`}
-          </p>
-        </div>
-      </CardBody>
-    </Card>
+      <div>
+        <p className="mt-4 mb-2">
+          timer:
+          {` ${timeLeft}`}
+        </p>
+        <p>
+          status:
+          {` ${status}`}
+        </p>
+      </div>
+    </div>
   );
 };
 

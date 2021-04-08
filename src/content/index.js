@@ -6,7 +6,7 @@ export default {
     description:
       'While it is impossible to know how a world sounds through cochlear implants-without having one yourself-these simulations are researchers best attempt at mimicking audio from this technology.',
     'recorder.info': 'Hear your voice through simulated cochlear implant',
-    'learn.more': 'Learn More',
+    'learn.more': 'Learn more',
     'sample.info': 'Hear other sounds through simulated cochlear implant',
     'toggle.language': 'عربى',
   },

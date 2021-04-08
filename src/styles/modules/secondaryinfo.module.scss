@@ -7,8 +7,16 @@
 }
 
 .button {
+  align-items: center;
+  display: flex;
+  font-size: 15px;
   font-weight: 500;
   line-height: 30px;
+  padding: 0 10px;
+
+  img {
+    margin-left: 5px;
+  }
 }
 
 .secondaryContainer {
