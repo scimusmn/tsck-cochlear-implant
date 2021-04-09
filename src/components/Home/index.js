@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Row, Col } from 'reactstrap';
+import * as styles from '@styles/modules/home.module.scss';
 
 import Overview from './Overview';
 import VoiceRecorder from './VoiceRecorder';
@@ -7,18 +7,16 @@ import SamplePlayer from './SamplePlayer';
 import LangSwitcher from './LangSwitcher';
 
 const Home = () => (
-  <Container fluid className="mt-5">
-    <Row>
-      <Col>
-        <VoiceRecorder />
-        <SamplePlayer />
-      </Col>
-      <Col>
-        <Overview />
-        <LangSwitcher />
-      </Col>
-    </Row>
-  </Container>
+  <div className={styles.container}>
+    <div className={styles.left}>
+      <VoiceRecorder />
+      <SamplePlayer />
+    </div>
+    <div className={styles.right}>
+      <Overview />
+      <LangSwitcher />
+    </div>
+  </div>
 );
 
 export default Home;
