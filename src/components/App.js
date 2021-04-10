@@ -9,11 +9,12 @@ import content from '@content';
 /* eslint object-curly-newline: ["error", { "multiline": true }] */
 // import { Toast, ToastBody, ToastHeader, Alert } from 'reactstrap';
 
+const TIMEOUT = 560000;
+
 const App = ({ children }) => {
   const { locale } = useLocale();
 
-  const timeout = 560000;
-  // const [remaining, setRemaining] = useState(timeout);
+  // const [remaining, setRemaining] = useState(TIMEOUT);
   // const [isIdle, setIsIdle] = useState(false);
 
   // const handleOnActive = () => setIsIdle(false);
@@ -23,7 +24,7 @@ const App = ({ children }) => {
   };
 
   useIdleTimer({
-    timeout,
+    TIMEOUT,
     // onActive: handleOnActive,
     onIdle: handleOnIdle,
   });
