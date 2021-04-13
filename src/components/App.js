@@ -17,6 +17,7 @@ const App = ({ children }) => {
   useIdleTimer({
     TIMEOUT,
     onIdle: handleOnIdle,
+    startOnMount: false,
   });
 
   return (
