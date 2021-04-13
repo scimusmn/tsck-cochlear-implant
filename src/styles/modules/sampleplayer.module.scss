@@ -1,8 +1,47 @@
 // ! duplication
 .container {
   background: linear-gradient(180deg, #0d003a 0%, #0d003a 0.01%, #242466 100%);
-  border: 1px solid rgba(34, 202, 177, 1);
+  border: 1px solid $smm-green;
   border-radius: 10px;
   color: #fff;
   height: 45%;
+  padding: 0.5rem 2rem;
+}
+
+.cardContainer {
+  display: flex;
+  height: 190px;
+  justify-content: space-between;
+}
+
+.card {
+  align-items: center;
+  background: linear-gradient(180deg, #0d003a 74.92%, #0d003a 74.92%, #242466 100%);
+  border: 1px solid $smm-green;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  width: 30%;
+
+  .image {
+    height: 70%;
+    width: 100%;
+  }
+
+  .button {
+    align-items: center;
+    background: transparent;
+    border-radius: 50%;
+    display: flex;
+    height: 15px;
+    justify-content: center;
+    width: 15px;
+  }
+
+  p {
+    font-size: 11px;
+    margin: 5px 0 10px;
+  }
 }
