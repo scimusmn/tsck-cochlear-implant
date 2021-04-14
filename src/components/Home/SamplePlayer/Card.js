@@ -6,25 +6,26 @@ import * as styles from '@styles/modules/sampleplayer.module.scss';
 import { playWhite } from '@utils/images/controls';
 
 const Card = ({
-  sample, image, text, playAudio,
+  id, sample, image, text, toggleAudio,
 }) => {
   const { audio } = useAudio();
-  const recording = audio.status === 'recording';
+  const voiceRecording = audio.status === 'recording';
+  const samplePlaying = audio.samplePlaying === id;
 
-  const playAudioHandler = () => {
-    playAudio(sample);
+  const toggleAudioHandler = () => {
+    toggleAudio(sample, id);
   };
 
   return (
-    <div className={styles.card}>
+    <div className={`${samplePlaying ? styles.recording : ''} ${styles.card}`}>
       <img className={styles.image} src={image} alt="sample-audio" />
       <p className="formatted">
         <FormattedMessage id={text} />
       </p>
       <button
         className={styles.button}
-        disabled={recording}
-        onClick={playAudioHandler}
+        disabled={voiceRecording || samplePlaying}
+        onClick={toggleAudioHandler}
         type="button"
       >
         <img src={playWhite} alt="record" />
@@ -36,15 +37,17 @@ const Card = ({
 export default Card;
 
 Card.defaultProps = {
+  id: '',
   sample: '',
   image: null,
   text: '',
-  playAudio: () => {},
+  toggleAudio: () => {},
 };
 
 Card.propTypes = {
+  id: PropTypes.string,
   sample: PropTypes.string,
   image: PropTypes.string,
   text: PropTypes.string,
-  playAudio: PropTypes.func,
+  toggleAudio: PropTypes.func,
 };

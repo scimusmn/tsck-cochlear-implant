@@ -52,6 +52,12 @@ const VoiceRecorder = () => {
     }
   };
 
+  const renderControl = (disabled, src, onClick) => (
+    <button disabled={disabled} onClick={onClick} type="button">
+      <img src={src} alt="play" />
+    </button>
+  );
+
   useEffect(() => {
     setAudio({ status });
   }, [status]);
@@ -67,15 +73,21 @@ const VoiceRecorder = () => {
         completeRecording={stopRecording}
       />
       <div className={styles.buttonsContainer}>
-        <button disabled={audio.status === 'playing'} onClick={toggleRecording} type="button">
-          <img src={audio.status === 'recording' ? stop : record} alt="record" />
-        </button>
-        <button disabled={audio.status === 'recording'} onClick={togglePlay} type="button">
-          <img src={audio.status === 'playing' ? pause : play} alt="play" />
-        </button>
-        <button disabled={audio.status === 'playing'} onClick={deleteRecording} type="button">
-          <img src={trash} alt="trash" />
-        </button>
+        {renderControl(
+          !!audio.samplePlaying || audio.status === 'playing',
+          audio.status === 'recording' ? stop : record,
+          toggleRecording,
+        )}
+        {renderControl(
+          !!audio.samplePlaying || audio.status === 'recording',
+          audio.status === 'playing' ? pause : play,
+          togglePlay,
+        )}
+        {renderControl(
+          !!audio.samplePlaying || audio.status === 'playing',
+          trash,
+          deleteRecording,
+        )}
       </div>
     </div>
   );

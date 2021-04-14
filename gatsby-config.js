@@ -46,6 +46,7 @@ module.exports = {
       options: {
         fonts: [
           `montserrat\:300,400,400i,500,600,700`,
+          `open sans\:400`,
           `tajawal\:500,600,700`,
         ],
         display: 'swap',

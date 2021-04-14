@@ -5,10 +5,6 @@ import PropTypes from 'prop-types';
 import { useAudio } from '@context/AudioContext';
 import * as styles from '@styles/modules/voicerecorder.module.scss';
 
-/**
- * clear intervals in useEffect?
- */
-
 const MAX_RECORDING_TIME = 10;
 
 const ProgressBar = forwardRef(({
@@ -88,6 +84,15 @@ const ProgressBar = forwardRef(({
   useEffect(() => {
     if (!mediaBlobUrl) resetProgressBar();
   }, [mediaBlobUrl]);
+
+  useEffect(
+    () => () => {
+      clearInterval(intervalCountdown.current);
+      clearInterval(intervalRecord.current);
+      clearInterval(intervalPlayback.current);
+    },
+    [],
+  );
 
   const startProgress = (event) => {
     event.persist();
