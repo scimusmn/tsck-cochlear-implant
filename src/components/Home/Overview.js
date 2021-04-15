@@ -5,16 +5,18 @@ import SecodaryInfo from '@components/SecondaryInfo';
 import * as styles from '@styles/modules/overview.module.scss';
 
 const Overview = () => (
-  <div className={styles.container}>
-    <h1 className="formatted heading">
-      <FormattedMessage id="heading" />
-    </h1>
-    <div className={styles.divider} />
-    <p className="formatted description">
-      <FormattedMessage id="description" />
-    </p>
+  <>
+    <div className={styles.container}>
+      <h1 className="formatted heading">
+        <FormattedMessage id="heading" />
+      </h1>
+      <div className={styles.divider} />
+      <p className="formatted description">
+        <FormattedMessage id="description" />
+      </p>
+    </div>
     <SecodaryInfo />
-  </div>
+  </>
 );
 
 export default Overview;

@@ -8,12 +8,15 @@
 
 .button {
   align-items: center;
+  bottom: 10%;
   display: flex;
   font-size: 1.5vh;
-  font-weight: 700;
-  line-height: 30px;
-  margin-top: 6rem;
   padding: 0 10px;
+  position: fixed;
+
+  p {
+    margin: 0;
+  }
 
   img {
     margin-left: 1vh;
