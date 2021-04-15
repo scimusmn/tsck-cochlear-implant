@@ -10,7 +10,7 @@ const Overview = () => (
       <FormattedMessage id="heading" />
     </h1>
     <div className={styles.divider} />
-    <p className="formatted">
+    <p className="formatted description">
       <FormattedMessage id="description" />
     </p>
     <SecodaryInfo />

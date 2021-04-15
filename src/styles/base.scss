@@ -19,6 +19,31 @@ button {
 
   .heading {
     font-family: $smm-default-font-en;
+    font-size: 4.8vh;
+    font-weight: 500;
+    line-height: 9vh;
+    padding-right: 10vh;
+  }
+
+  .description {
+    font-size: 2.3vh;
+  }
+
+  .info {
+    font-size: 2.3vh;
+  }
+
+  .sample-info {
+    font-size: 1.7vh;
+  }
+
+  .bullet-heading {
+    font-size: 4vh;
+    font-weight: 700;
+  }
+
+  .bullet {
+    font-size: 2vh;
   }
 }
 
@@ -30,6 +55,30 @@ button {
   }
 
   .heading {
+    font-size: 7vh;
     font-weight: 700;
+    padding-left: 10vh;
+  }
+
+  .description {
+    font-size: 2.3vh;
+    font-weight: 500;
+  }
+
+  .info {
+    font-size: 2.8vh;
+    font-weight: 700;
+  }
+
+  .sample-info {
+    font-size: 1.7vh;
+  }
+
+  .bullet-heading {
+    font-size: 4vh;
+  }
+
+  .bullet {
+    font-size: 2.5vh;
   }
 }

@@ -18,18 +18,24 @@ const Card = ({
 
   return (
     <div className={`${samplePlaying ? styles.recording : ''} ${styles.card}`}>
-      <img className={styles.image} src={image} alt="sample-audio" />
-      <p className="formatted">
-        <FormattedMessage id={text} />
-      </p>
-      <button
-        className={styles.button}
-        disabled={voiceRecording || samplePlaying}
-        onClick={toggleAudioHandler}
-        type="button"
-      >
-        <img src={playWhite} alt="record" />
-      </button>
+      <div
+        className={styles.image}
+        style={{
+          background: `url('${image}')  0% 0% / cover`,
+        }}
+      />
+      <div className={styles.controls}>
+        <p className="formatted sample-info">
+          <FormattedMessage id={text} />
+        </p>
+        <button
+          disabled={voiceRecording || samplePlaying}
+          onClick={toggleAudioHandler}
+          type="button"
+        >
+          <img src={playWhite} alt="record" />
+        </button>
+      </div>
     </div>
   );
 };

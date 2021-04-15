@@ -1,19 +1,23 @@
 // ! duplication
 .container {
   background: linear-gradient(180deg, #0d003a 0%, #0d003a 0.01%, #242466 100%);
-  border: 1px solid $smm-green;
-  border-radius: 10px;
+  border: 2px solid $smm-green;
+  border-radius: 20px;
   color: #fff;
   display: flex;
   flex-direction: column;
   height: 45%;
   justify-content: space-around;
   padding: 0.5rem 2rem;
+
+  p {
+    margin: 0;
+  }
 }
 
 .cardContainer {
   display: flex;
-  height: 190px;
+  height: 75%;
   justify-content: space-between;
 }
 
@@ -21,7 +25,7 @@
   align-items: center;
   background: linear-gradient(180deg, #0d003a 74.92%, #0d003a 74.92%, #242466 100%);
   border: 1px solid $smm-green;
-  border-radius: 10px;
+  border-radius: 15px;
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -29,28 +33,36 @@
   width: 30%;
 
   .image {
-    height: 70%;
+    height: inherit;
     width: 100%;
   }
 
-  button {
-    align-items: center;
-    background: transparent;
-    border-radius: 50%;
-    display: flex;
-    height: 15px;
-    justify-content: center;
-    width: 15px;
+  .controls {
+    padding: 1vh;
 
-    &[disabled] {
-      opacity: 0.7;
-      pointer-events: none;
+    p {
+      padding: 0.5rem 0;
     }
-  }
 
-  p {
-    font-size: 11px;
-    margin: 5px 0 10px;
+    button {
+      align-items: center;
+      background: transparent;
+      border-radius: 50%;
+      display: flex;
+      // height: fit-content;
+      justify-content: center;
+      margin: 0 auto;
+      // width: 45px;
+
+      &[disabled] {
+        opacity: 0.7;
+        pointer-events: none;
+      }
+
+      img {
+        width: 4vh;
+      }
+    }
   }
 }
 
