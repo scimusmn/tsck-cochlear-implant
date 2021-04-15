@@ -3,7 +3,10 @@
   border: 1px solid rgba(34, 202, 177, 1);
   border-radius: 10px;
   color: #fff;
+  display: flex;
+  flex-direction: column;
   height: 45%;
+  justify-content: space-around;
   padding: 3.5rem;
 }
 
@@ -12,7 +15,6 @@
   color: white;
   height: 1rem;
   line-height: 30px;
-  margin: 1.5rem 0 2.5rem 0;
   text-align: center;
 
   div {
@@ -36,9 +38,18 @@
   width: 40%;
 
   button {
+    align-items: center;
+    background: #fff;
     border-radius: 50%;
+    display: flex;
     height: 35px;
+    justify-content: center;
     width: 35px;
+
+    &[disabled] {
+      opacity: 0.7;
+      pointer-events: none;
+    }
   }
 
   img {

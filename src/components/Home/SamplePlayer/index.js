@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { FormattedMessage } from 'react-intl';
+import { useAudio } from '@context/AudioContext';
 import * as styles from '@styles/modules/sampleplayer.module.scss';
 // import all sample audios
 import { bird, cat, frog } from '@utils/audios';
@@ -9,16 +10,19 @@ import Card from './Card';
 
 const SAMPLE_DATA = [
   {
+    id: 'bird',
     data: bird,
     image: birdImg,
     text: 'bird.description',
   },
   {
+    id: 'traffic',
     data: frog,
     image: trafficImg,
     text: 'traffic.description',
   },
   {
+    id: 'anthem',
     data: cat,
     image: anthemImg,
     text: 'anthem.description',
@@ -26,18 +30,36 @@ const SAMPLE_DATA = [
 ];
 
 const SamplePlayer = () => {
-  const [sample, setSample] = useState(null);
+  const [currentAudio, setCurrentAudio] = useState(null);
+  const { audio, setAudio } = useAudio();
 
   const playAudio = (audioFile) => {
-    if (sample) sample.pause();
     const playback = new Audio(audioFile);
-    setSample(playback);
+    setCurrentAudio(playback);
     playback.play();
-
     playback.onended = () => {
       playback.pause();
-      setSample(null);
+      setAudio({ ...audio, samplePlaying: '' });
+      setCurrentAudio(null);
     };
+  };
+
+  const toggleAudio = (audioFile, id) => {
+    if (currentAudio) {
+      const url = new URL(currentAudio.currentSrc);
+      if (url.pathname === audioFile) {
+        setAudio({ ...audio, samplePlaying: '' });
+        currentAudio.pause();
+        setCurrentAudio(null);
+      } else {
+        currentAudio.pause();
+        setAudio({ ...audio, samplePlaying: id });
+        playAudio(audioFile);
+      }
+    } else {
+      setAudio({ ...audio, samplePlaying: id });
+      playAudio(audioFile);
+    }
   };
 
   return (
@@ -46,13 +68,16 @@ const SamplePlayer = () => {
         <FormattedMessage id="sample.info" />
       </p>
       <div className={styles.cardContainer}>
-        {SAMPLE_DATA.map(({ data, image, text }) => (
+        {SAMPLE_DATA.map(({
+          id, data, image, text,
+        }) => (
           <Card
-            key={text}
+            key={id}
+            id={id}
             sample={data}
             image={image}
             text={text}
-            playAudio={playAudio}
+            toggleAudio={toggleAudio}
           />
         ))}
       </div>
