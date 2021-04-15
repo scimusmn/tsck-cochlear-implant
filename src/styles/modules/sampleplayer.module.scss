@@ -2,7 +2,7 @@
 .container {
   background: linear-gradient(180deg, #0d003a 0%, #0d003a 0.01%, #242466 100%);
   border: 1px solid $smm-green;
-  border-radius: 10px;
+  border-radius: 20px;
   color: #fff;
   height: 45%;
   padding: 0.5rem 2rem;
@@ -16,7 +16,12 @@
 
 .card {
   align-items: center;
-  background: linear-gradient(180deg, #0d003a 74.92%, #0d003a 74.92%, #242466 100%);
+  // background: linear-gradient(
+  //   180deg,
+  //   #0d003a 74.92%,
+  //   #0d003a 74.92%,
+  //   #242466 100%
+  // );
   border: 1px solid $smm-green;
   border-radius: 10px;
   display: flex;
