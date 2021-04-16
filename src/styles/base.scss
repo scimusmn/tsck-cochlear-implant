@@ -21,12 +21,14 @@ button {
     font-family: $smm-default-font-en;
     font-size: 4.8vh;
     font-weight: 500;
+    letter-spacing: 0.5rem;
     line-height: 9vh;
     padding-right: 10vh;
   }
 
   .description {
     font-size: 2.3vh;
+    padding-right: 5vh;
   }
 
   .info {
