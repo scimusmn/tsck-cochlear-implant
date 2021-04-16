@@ -7,7 +7,7 @@ const BulletPoint = ({ number, node }) => (
     <div className={styles.number}>
       {number}
     </div>
-    <p className={styles.text}>
+    <p className="bullet">
       {node}
     </p>
   </div>

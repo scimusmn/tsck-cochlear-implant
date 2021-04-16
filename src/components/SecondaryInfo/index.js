@@ -11,7 +11,7 @@ const SecodaryInfo = () => {
     <>
       {open && <Modal setOpen={setOpen} />}
       <button className={styles.button} color="info" onClick={() => setOpen(true)} type="button">
-        <FormattedMessage id="learn.more" />
+        <p className="learn-more"><FormattedMessage id="learn.more" /></p>
         <img alt="learn-more" src={info} />
       </button>
     </>

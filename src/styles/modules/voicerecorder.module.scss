@@ -1,19 +1,19 @@
 .container {
   background: linear-gradient(180deg, #0d003a 0%, #0d003a 0.01%, #242466 100%);
-  border: 1px solid rgba(34, 202, 177, 1);
-  border-radius: 10px;
+  border: 2px solid $smm-green;
+  border-radius: 20px;
   color: #fff;
   display: flex;
   flex-direction: column;
   height: 45%;
   justify-content: space-around;
-  padding: 3.5rem;
+  padding: 10vh 5vh;
 }
 
 .progressBar {
   border: 1px solid;
   color: white;
-  height: 1rem;
+  height: 2.5vh;
   line-height: 30px;
   text-align: center;
 
@@ -42,9 +42,9 @@
     background: #fff;
     border-radius: 50%;
     display: flex;
-    height: 35px;
+    height: 5vh;
     justify-content: center;
-    width: 35px;
+    width: 5vh;
 
     &[disabled] {
       opacity: 0.7;
@@ -53,6 +53,6 @@
   }
 
   img {
-    // display: inline-block;
+    width: 3.5vh;
   }
 }

@@ -64,7 +64,7 @@ const SamplePlayer = () => {
 
   return (
     <div className={styles.container}>
-      <p className={`${styles.heading} formatted`}>
+      <p className="info formatted">
         <FormattedMessage id="sample.info" />
       </p>
       <div className={styles.cardContainer}>

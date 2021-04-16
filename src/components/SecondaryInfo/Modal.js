@@ -33,7 +33,7 @@ const Modal = ({ setOpen }) => {
           <img className={styles.image} alt="cochlear-how-to" src={ear} />
         </div>
         <div className={styles.textContainer}>
-          <h3><FormattedMessage id="secondaryinfo.heading" /></h3>
+          <h3 className="bullet-heading"><FormattedMessage id="secondaryinfo.heading" /></h3>
           <hr />
           <div className={styles.bulletPointContainer}>
             {[1, 2, 3, 4].map((value) => (
