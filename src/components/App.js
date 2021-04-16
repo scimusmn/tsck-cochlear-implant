@@ -5,7 +5,7 @@ import { IntlProvider } from 'react-intl';
 import { useLocale } from '@context/LocaleContext';
 import content from '@content';
 
-const TIMEOUT = 560000;
+const TIMEOUT = 60000;
 
 const App = ({ children }) => {
   const { locale } = useLocale();
