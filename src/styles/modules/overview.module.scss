@@ -1,16 +1,32 @@
-.container {
-  color: #fff;
-  margin: 2rem 3rem 4rem 1rem;
+// .heading {
+//   text-transform: uppercase;
+//   @include localize(
+//     font-family,
+//     $smm-default-font-ar,
+//     $smm-default-font-en-heading
+//   );
+//   @include localize(font-size, 75px, 50px);
+//   @include localize(font-weight, 700, 500);
+//   @include localize(line-height, 98px, 98.5px);
+//   @include localize(letter-spacing, 1.25px, 0.18em);
+// }
 
-  h1 {
-    font-weight: 400;
-    line-height: 5rem;
-    text-transform: uppercase;
-  }
-}
+// .description {
+//   font-weight: 500;
+//   font-size: 25px;
+//   @include localize(font-weight, 500, 400);
+//   @include localize(line-height, 30px, 36px);
+// }
 
-.divider {
-  background: linear-gradient(-90deg, #e8fffc -0.87%, #22cab1 5.21%, #0d003a 145.37%);
-  height: 1px;
-  margin: 3vh 0;
-}
+// .divider {
+//   background: linear-gradient(
+//     90deg,
+//     #e8fffc -0.87%,
+//     #22cab1 1.21%,
+//     #0d003a 82.66%,
+//     #0d003a 99.37%
+//   );
+//   height: 1.5px;
+//   margin: 20px 0 30px 0;
+//   @include localize(transform, rotate(-180deg), rotate(180deg));
+// }

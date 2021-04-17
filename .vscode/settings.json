@@ -4,6 +4,5 @@
 
     
     },
-    "prettier.trailingComma": "all",
-    "prettier.enable": false
+    "prettier.trailingComma": "all"
 }

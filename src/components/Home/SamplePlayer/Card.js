@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 import { useAudio } from '@context/AudioContext';
 import * as styles from '@styles/modules/sampleplayer.module.scss';
-import { playWhite } from '@utils/images/controls';
+import { playIcon } from '@utils/images/controls';
 
 const Card = ({
   id, sample, image, text, toggleAudio,
@@ -17,25 +17,29 @@ const Card = ({
   };
 
   return (
-    <div className={`${samplePlaying ? styles.recording : ''} ${styles.card}`}>
-      <div
-        className={styles.image}
-        style={{
-          background: `url('${image}')  0% 0% / cover`,
-        }}
-      />
-      <div className={styles.controls}>
-        <p className="formatted sample-info">
-          <FormattedMessage id={text} />
-        </p>
-        <button
-          disabled={voiceRecording || samplePlaying}
-          onClick={toggleAudioHandler}
-          type="button"
-        >
-          <img src={playWhite} alt="record" />
-        </button>
+    <div>
+      <div className={`${samplePlaying ? styles.recording : ''} ${styles.card}`}>
+        {/* <div
+          className={styles.image}
+          style={{
+            background: `url('${image}')  0% 0% / cover`,
+          }}
+        /> */}
+        <img className={styles.image} src={image} alt="" />
+        <div className={styles.controls}>
+          <p>
+            <FormattedMessage id={text} />
+          </p>
+          <button
+            disabled={voiceRecording || samplePlaying}
+            onClick={toggleAudioHandler}
+            type="button"
+          >
+            <img src={playIcon} alt="record" />
+          </button>
+        </div>
       </div>
+      <div className={styles.credit}>Sound credit</div>
     </div>
   );
 };

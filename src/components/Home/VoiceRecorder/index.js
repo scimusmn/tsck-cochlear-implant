@@ -5,10 +5,10 @@ import { useAudio } from '@context/AudioContext';
 import * as styles from '@styles/modules/voicerecorder.module.scss';
 import {
   pause,
-  play,
-  record,
+  recordIcon,
   stop,
-  trash,
+  trashIcon,
+  playIcon,
 } from '@utils/images/controls';
 import ProgressBar from './ProgressBar';
 
@@ -64,7 +64,7 @@ const VoiceRecorder = () => {
 
   return (
     <div className={styles.container}>
-      <p className="info formatted">
+      <p className={styles.info}>
         <FormattedMessage id="recorder.info" />
       </p>
       <ProgressBar
@@ -75,17 +75,17 @@ const VoiceRecorder = () => {
       <div className={styles.buttonsContainer}>
         {renderControl(
           !!audio.samplePlaying || audio.status === 'playing',
-          audio.status === 'recording' ? stop : record,
+          audio.status === 'recording' ? stop : recordIcon,
           toggleRecording,
         )}
         {renderControl(
           !!audio.samplePlaying || audio.status === 'recording',
-          audio.status === 'playing' ? pause : play,
+          audio.status === 'playing' ? pause : playIcon,
           togglePlay,
         )}
         {renderControl(
           !!audio.samplePlaying || audio.status === 'playing',
-          trash,
+          trashIcon,
           deleteRecording,
         )}
       </div>

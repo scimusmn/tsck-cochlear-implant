@@ -8,14 +8,16 @@ import LangSwitcher from './LangSwitcher';
 
 const Home = () => (
   <div className={styles.container}>
-    <div className={styles.left}>
-      <VoiceRecorder />
-      <SamplePlayer />
+    <div className={styles.grid}>
+      <div className={styles.left}>
+        <VoiceRecorder />
+        <SamplePlayer />
+      </div>
+      <div className={styles.right}>
+        <Overview />
+      </div>
     </div>
-    <div className={styles.right}>
-      <Overview />
-      <LangSwitcher />
-    </div>
+    <LangSwitcher />
   </div>
 );
 

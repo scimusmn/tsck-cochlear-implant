@@ -1,58 +1,70 @@
-.container {
-  background: linear-gradient(180deg, #0d003a 0%, #0d003a 0.01%, #242466 100%);
-  border: 2px solid $smm-green;
-  border-radius: 20px;
-  color: #fff;
-  display: flex;
-  flex-direction: column;
-  height: 45%;
-  justify-content: space-around;
-  padding: 10vh 5vh;
-}
+// .container {
+//   background: linear-gradient(180deg, #0d003a 0%, #0d003a 0.01%, #242466 100%);
+//   border: 2px solid $smm-green;
+//   border-radius: 20px;
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   width: 950px;
+//   height: 450px;
+//   padding: 25px 50px;
+// }
 
-.progressBar {
-  border: 1px solid;
-  color: white;
-  height: 2.5vh;
-  line-height: 30px;
-  text-align: center;
+// .info {
+//   @include localize(font-size, 30px, 25px);
+//   @include localize(font-weight, 700, 400);
+//   @include localize(line-height, 32px, 34px);
+// }
 
-  div {
-    height: -webkit-fill-available;
-    width: 0;
-  }
-}
+// .progressBar {
+//   border: 1px solid;
+//   height: 22.61px;
+//   margin: 35px 0 65px 0;
+//   div {
+//     height: -webkit-fill-available;
+//     width: 0;
+//   }
+// }
 
-.red {
-  background: linear-gradient(28deg, rgba(0, 0, 0, 1) 0%, $smm-red 100%);
-}
+// .red {
+//   background: linear-gradient(28deg, rgba(0, 0, 0, 1) 0%, $smm-red 100%);
+// }
 
-.green {
-  background: linear-gradient(28deg, rgba(0, 0, 0, 1) 0%, $smm-green 100%);
-}
+// .green {
+//   background: linear-gradient(28deg, rgba(0, 0, 0, 1) 0%, $smm-green 100%);
+// }
 
-.buttonsContainer {
-  display: flex;
-  justify-content: space-between;
-  margin: 0 auto;
-  width: 40%;
+// .buttonsContainer {
+//   display: flex;
+//   justify-content: space-between;
+//   margin: 0 auto;
+//   width: 40%;
 
-  button {
-    align-items: center;
-    background: #fff;
-    border-radius: 50%;
-    display: flex;
-    height: 5vh;
-    justify-content: center;
-    width: 5vh;
+//   button {
+//     background: none;
+//     align-items: center;
+//     border-radius: 50%;
+//     display: flex;
+//     justify-content: center;
+//     width: 45px;
+//     height: 45px;
 
-    &[disabled] {
-      opacity: 0.7;
-      pointer-events: none;
-    }
-  }
+//     &[disabled] {
+//       opacity: 0.7;
+//       pointer-events: none;
+//     }
+//   }
 
-  img {
-    width: 3.5vh;
-  }
-}
+//   img {
+//     display: block;
+//     width: 45px;
+//     height: 45px;
+//   }
+// }
+
+// // TESTING
+// @media screen and (max-width: 1600px) {
+//   .container {
+//     width: 100%;
+//   }
+// }
