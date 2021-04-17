@@ -1,0 +1,7 @@
+@mixin localize($property, $ar-value, $en-value) {
+  #{$property}: $ar-value;
+
+  [class='en-us'] & {
+    #{$property}: $en-value;
+  }
+}

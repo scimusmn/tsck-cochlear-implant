@@ -1,3 +1,5 @@
+/* eslint-disable quotes */
+/* eslint-disable no-useless-escape */
 require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 });
@@ -15,7 +17,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-sass',
       options: {
-        data: '@import "src/styles/variables";',
+        data: '@import "src/styles/variables"; @import "src/styles/mixins";',
         includePaths: ['src/components'],
       },
     },
@@ -37,6 +39,17 @@ module.exports = {
         background_color: '#ffffff',
         theme_color: '#000000',
         display: 'minimal-ui',
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-google-fonts',
+      options: {
+        fonts: [
+          `montserrat\:300,400,400i,500,600,700,900`,
+          `open sans\:400,500,600,700`,
+          `tajawal\:500,600,700`,
+        ],
+        display: 'swap',
       },
     },
   ],

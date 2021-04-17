@@ -1,15 +1,33 @@
-html,
-body {
-  height: 100%;
-  width: 100%;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 16px;
 }
 
 body {
-  font-family: $smm-default-font;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-}
-
-.ar-qa .formatted {
+  color: $white;
+  font-family: $smm-default-font-ar;
   text-align: right;
+
+  &.en-us {
+    font-family: $smm-default-font-en;
+    text-align: left;
+  }
+}
+
+p {
+  margin: 0;
+}
+
+button {
+  border: 0;
+  color: $white;
+  font-family: inherit;
+  padding: 0;
 }
