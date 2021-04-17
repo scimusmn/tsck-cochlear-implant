@@ -11,7 +11,7 @@
       "custom-properties",
       "declarations"
     ],
-    "order/properties-alphabetical-order": false,
+    "order/properties-alphabetical-order": null,
     "at-rule-no-unknown": [true, {
       "ignoreAtRules": ["function", "if", "each", "include", "mixin"]
     }]
