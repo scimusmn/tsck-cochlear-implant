@@ -10,7 +10,7 @@ const MAX_RECORDING_TIME = 10;
 const ProgressBar = forwardRef(({
   mediaBlobUrl, completeRecording,
 }, ref) => {
-  const { audio, setAudio } = useAudio();
+  const { audio } = useAudio();
   const progressBar = useRef(null);
   const intervalRecord = useRef();
   const intervalPlayback = useRef();
@@ -61,6 +61,9 @@ const ProgressBar = forwardRef(({
     if (audio.status === 'stopping') {
       clearInterval(intervalRecord.current);
     }
+    if (audio.status === 'playback_aborted') {
+      clearInterval(intervalPlayback.current);
+    }
   }, [audio.status]);
 
   useEffect(() => {
@@ -75,10 +78,6 @@ const ProgressBar = forwardRef(({
     [],
   );
 
-  const updateStatus = () => {
-    setAudio({ status: 'playback_complete' });
-  };
-
   return (
     <>
       <audio
@@ -86,7 +85,6 @@ const ProgressBar = forwardRef(({
         ref={ref}
         src={mediaBlobUrl || ''}
         type="audio/wav"
-        onEnded={updateStatus}
       >
         <track kind="captions" />
       </audio>

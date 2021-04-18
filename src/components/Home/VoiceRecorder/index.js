@@ -29,6 +29,9 @@ const VoiceRecorder = () => {
       setAudioDeleted(true);
       stopRecording();
     }
+    if (audio.status === 'playing') {
+      setAudio({ status: 'playback_aborted' });
+    }
     clearBlobUrl();
   };
 
@@ -36,6 +39,9 @@ const VoiceRecorder = () => {
     if (mediaBlobUrl && ref.current) {
       setAudio({ status: 'playing' });
       ref.current.play();
+      ref.current.onended = () => {
+        setAudio({ status: 'playback_complete' });
+      };
     }
   };
 
@@ -80,7 +86,7 @@ const VoiceRecorder = () => {
           play,
         )}
         {renderControl(
-          disableControl || (!mediaBlobUrl && audio.status !== 'recording'),
+          !!audio.samplePlaying || (!mediaBlobUrl && audio.status !== 'recording'),
           trashIcon,
           deleteRecording,
         )}
