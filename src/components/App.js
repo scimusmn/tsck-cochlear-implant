@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useIdleTimer } from 'react-idle-timer';
 import { IntlProvider } from 'react-intl';
@@ -11,14 +11,22 @@ const App = ({ children }) => {
   const { locale } = useLocale();
 
   const handleOnIdle = () => {
-    setTimeout(() => window.location.reload(), 1000);
+    window.location.reload();
   };
 
-  useIdleTimer({
-    TIMEOUT,
+  const { getRemainingTime } = useIdleTimer({
+    timeout: TIMEOUT,
     onIdle: handleOnIdle,
     startOnMount: false,
   });
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      // eslint-disable-next-line no-console
+      console.log(`Time remaining: ${Math.floor(getRemainingTime() / 1000)}`);
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <IntlProvider locale={locale} messages={content[locale]}>
