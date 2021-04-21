@@ -3,7 +3,7 @@
     28deg,
     rgba(13, 0, 58, 1) 0%,
     rgba(13, 0, 58, 1) 43%,
-    rgba(34, 202, 177, 1) 100%
+    $smm-green 100%
   );
   min-height: 1080px;
   height: 100vh;
@@ -21,17 +21,6 @@
   max-width: 1920px;
   margin: 0 auto;
 }
-
-// .left {
-//   // display: flex;
-//   // flex-direction: column;
-//   // justify-content: space-around;
-// }
-// .right {
-//   // display: flex;
-//   // flex-direction: column;
-//   // justify-content: center;
-// }
 
 // TESTING
 @media screen and (max-width: 1600px) {
