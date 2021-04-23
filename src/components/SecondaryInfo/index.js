@@ -1,17 +1,22 @@
 import React, { useState } from 'react';
-import { Button } from 'reactstrap';
+import { FormattedMessage } from 'react-intl';
+import * as styles from '@styles/modules/secondaryinfo.module.scss';
+import info from '@utils/images/info.svg';
 import Modal from './Modal';
 
 const SecodaryInfo = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <div>
+    <>
       {open && <Modal setOpen={setOpen} />}
-      <Button color="info" onClick={() => setOpen(true)} type="button">
-        Learn more
-      </Button>
-    </div>
+      <button className={styles.button} color="info" onClick={() => setOpen(true)} type="button">
+        <span>
+          <FormattedMessage id="learn.more" />
+        </span>
+        <img alt="learn-more" src={info} />
+      </button>
+    </>
   );
 };
 

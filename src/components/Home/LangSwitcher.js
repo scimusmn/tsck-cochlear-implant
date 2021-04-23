@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
-import { Button } from 'reactstrap';
+import { FormattedMessage } from 'react-intl';
 import { useLocale } from '@context/LocaleContext';
+import * as styles from '@styles/modules/lang.module.scss';
+import toggle from '@utils/images/toggle.svg';
 
 const LangSwitcher = () => {
   const { locale, toggleLocale } = useLocale();
@@ -11,11 +13,13 @@ const LangSwitcher = () => {
   }, [locale]);
 
   return (
-    <div className="mt-4">
-      <Button color="primary" onClick={toggleLocale} type="button">
-        Toggle Language
-      </Button>
+    <div className={styles.container}>
+      <button className={styles.button} onClick={toggleLocale} type="button">
+        <img alt="toggle-lang" src={toggle} />
+        <FormattedMessage id="toggle.language" />
+      </button>
     </div>
   );
 };
+
 export default LangSwitcher;

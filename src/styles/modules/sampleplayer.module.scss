@@ -1,0 +1,91 @@
+// ! duplication
+.container {
+  background: linear-gradient(180deg, #0d003a 0%, #0d003a 0.01%, #242466 100%);
+  border: 2px solid $smm-green;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 950px;
+  height: 475px;
+  padding: 30px 50px 0 50px;
+  margin-top: 55px;
+}
+
+.info {
+  @include localize(font-size, 30px, 25px);
+  @include localize(font-weight, 700, 400);
+  @include localize(line-height, 32px, 34px);
+}
+
+.cardContainer {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.card {
+  align-items: center;
+  background: linear-gradient(
+    180deg,
+    #0d003a 74.92%,
+    #0d003a 74.92%,
+    #242466 100%
+  );
+  border: 1px solid $smm-green;
+  border-radius: 15px;
+  width: 243.28px;
+  overflow: hidden;
+  text-align: center;
+  .image {
+    display: block;
+    width: 100%;
+    max-height: 221px;
+    object-fit: cover;
+    object-position: center center;
+  }
+
+  .controls {
+    padding: 16px 0;
+    p {
+      margin-bottom: 16px;
+      font-weight: 500;
+      font-size: 18px;
+      @include localize(line-height, 22px, 25px);
+    }
+    button {
+      background: none;
+      margin: 0 auto;
+      &[disabled] {
+        opacity: 0.7;
+        pointer-events: none;
+      }
+      img {
+        display: block;
+        width: 45px;
+        height: 45px;
+      }
+    }
+  }
+}
+
+.credit {
+  margin: 8px 0;
+  font-family: $smm-default-font-en;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 14px;
+  opacity: 0.5;
+  text-align: left;
+}
+
+.recording {
+  box-shadow: 0 0 15px 0 $smm-light-blue;
+}
+
+// TESTING
+@media screen and (max-width: 1600px) {
+  .container {
+    width: 100%;
+  }
+}

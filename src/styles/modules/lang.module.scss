@@ -1,0 +1,24 @@
+.container {
+  bottom: 10%;
+  margin-top: 1.5rem;
+  position: fixed;
+  right: 0;
+}
+
+.button {
+  background-color: $smm-green;
+  height: 75px;
+  width: 250px;
+  border-radius: 10px 0 0 10px;
+  font-size: 30px;
+  font-weight: 600;
+  text-transform: uppercase;
+
+  @include localize(font-family, $smm-default-font-en, $smm-default-font-ar);
+
+  img {
+    display: inline-block;
+    margin-right: 10px;
+    width: 63px;
+  }
+}
