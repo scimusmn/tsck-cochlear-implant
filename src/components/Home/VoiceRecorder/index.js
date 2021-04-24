@@ -65,7 +65,7 @@ const VoiceRecorder = () => {
   }, [status]);
 
   return (
-    <div className={styles.container}>
+    <div className={styles.audioContainer}>
       <p className={styles.info}>
         <FormattedMessage id="recorder.info" />
       </p>

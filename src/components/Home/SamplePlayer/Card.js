@@ -1,16 +1,21 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
+import { GatsbyImage, getImage as getGatsbyImage } from 'gatsby-plugin-image';
+
 import { useAudio } from '@context/AudioContext';
+import { useImages } from '@context/ImagesContext';
 import * as styles from '@styles/modules/sampleplayer.module.scss';
 import { playIcon } from '@utils/images/controls';
 
 const Card = ({
-  id, sample, image, text, toggleAudio,
+  id, sample, text, toggleAudio,
 }) => {
   const { audio } = useAudio();
+  const { getImage } = useImages();
   const recorderInUse = audio.status === 'recording' || audio.status === 'playing';
   const samplePlaying = audio.samplePlaying === id;
+  const image = useMemo(() => getGatsbyImage(getImage(id)), [id]);
 
   const toggleAudioHandler = () => {
     toggleAudio(sample, id);
@@ -19,13 +24,12 @@ const Card = ({
   return (
     <div>
       <div className={`${samplePlaying ? styles.recording : ''} ${styles.card}`}>
-        {/* <div
-          className={styles.image}
-          style={{
-            background: `url('${image}')  0% 0% / cover`,
-          }}
-        /> */}
-        <img className={styles.image} src={image} alt="" />
+        <GatsbyImage
+          image={image}
+          alt="sample-image"
+          style={{ display: 'block', height: 221 }}
+          loading="eager"
+        />
         <div className={styles.controls}>
           <p>
             <FormattedMessage id={text} />
@@ -49,7 +53,6 @@ export default Card;
 Card.defaultProps = {
   id: '',
   sample: '',
-  image: null,
   text: '',
   toggleAudio: () => {},
 };
@@ -57,7 +60,6 @@ Card.defaultProps = {
 Card.propTypes = {
   id: PropTypes.string,
   sample: PropTypes.string,
-  image: PropTypes.string,
   text: PropTypes.string,
   toggleAudio: PropTypes.func,
 };
