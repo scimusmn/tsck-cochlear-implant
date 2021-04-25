@@ -9,11 +9,11 @@ import LangSwitcher from './LangSwitcher';
 const Home = () => (
   <div className={styles.container}>
     <div className={styles.grid}>
-      <div className={styles.left}>
+      <div>
         <VoiceRecorder />
         <SamplePlayer />
       </div>
-      <div className={styles.right}>
+      <div>
         <Overview />
       </div>
     </div>

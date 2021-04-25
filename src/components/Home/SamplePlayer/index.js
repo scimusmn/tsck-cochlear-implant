@@ -4,27 +4,22 @@ import { useAudio } from '@context/AudioContext';
 import * as styles from '@styles/modules/sampleplayer.module.scss';
 // import all sample audios
 import { bird, cat, frog } from '@utils/audios';
-// import all images
-import { birdImg, trafficImg, anthemImg } from '@utils/images/samples';
 import Card from './Card';
 
 const SAMPLE_DATA = [
   {
     id: 'bird',
     data: bird,
-    image: birdImg,
     text: 'bird.description',
   },
   {
     id: 'traffic',
     data: frog,
-    image: trafficImg,
     text: 'traffic.description',
   },
   {
     id: 'anthem',
     data: cat,
-    image: anthemImg,
     text: 'anthem.description',
   },
 ];
@@ -69,13 +64,12 @@ const SamplePlayer = () => {
       </p>
       <div className={styles.cardContainer}>
         {SAMPLE_DATA.map(({
-          id, data, image, text,
+          id, data, text,
         }) => (
           <Card
             key={id}
             id={id}
             sample={data}
-            image={image}
             text={text}
             toggleAudio={toggleAudio}
           />

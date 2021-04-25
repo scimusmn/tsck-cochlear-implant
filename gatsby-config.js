@@ -14,10 +14,13 @@ module.exports = {
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     'gatsby-plugin-eslint',
+    'gatsby-plugin-image',
+    'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
     {
       resolve: 'gatsby-plugin-sass',
       options: {
-        data: '@import "src/styles/variables"; @import "src/styles/mixins";',
+        data: '@import "src/styles/variables"; @import "src/styles/mixins"; @import "src/styles/shared";',
         includePaths: ['src/components'],
       },
     },

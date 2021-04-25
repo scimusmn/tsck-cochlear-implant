@@ -1,14 +1,6 @@
-// ! duplication
 .container {
-  background: linear-gradient(180deg, #0d003a 0%, #0d003a 0.01%, #242466 100%);
-  border: 2px solid $smm-green;
-  border-radius: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 950px;
-  height: 475px;
-  padding: 30px 50px 0 50px;
+  @extend .audioContainer;
+
   margin-top: 55px;
 }
 

@@ -1,12 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
+
 import { useAudio } from '@context/AudioContext';
 import * as styles from '@styles/modules/sampleplayer.module.scss';
 import { playIcon } from '@utils/images/controls';
+import SampleImage from './SampleImage';
 
 const Card = ({
-  id, sample, image, text, toggleAudio,
+  id, sample, text, toggleAudio,
 }) => {
   const { audio } = useAudio();
   const recorderInUse = audio.status === 'recording' || audio.status === 'playing';
@@ -19,13 +21,7 @@ const Card = ({
   return (
     <div>
       <div className={`${samplePlaying ? styles.recording : ''} ${styles.card}`}>
-        {/* <div
-          className={styles.image}
-          style={{
-            background: `url('${image}')  0% 0% / cover`,
-          }}
-        /> */}
-        <img className={styles.image} src={image} alt="" />
+        <SampleImage id={id} />
         <div className={styles.controls}>
           <p>
             <FormattedMessage id={text} />
@@ -49,7 +45,6 @@ export default Card;
 Card.defaultProps = {
   id: '',
   sample: '',
-  image: null,
   text: '',
   toggleAudio: () => {},
 };
@@ -57,7 +52,6 @@ Card.defaultProps = {
 Card.propTypes = {
   id: PropTypes.string,
   sample: PropTypes.string,
-  image: PropTypes.string,
   text: PropTypes.string,
   toggleAudio: PropTypes.func,
 };
