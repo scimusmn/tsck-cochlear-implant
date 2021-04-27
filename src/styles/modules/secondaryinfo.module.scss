@@ -8,6 +8,9 @@
   height: 45px;
   border-radius: 10px;
   color: $black;
+  &:active {
+    background-color: $smm-black-blue;
+  }
   span {
     font-weight: 700;
     @include localize(font-size, 25px, 20px);

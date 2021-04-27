@@ -9,7 +9,7 @@ const SecodaryInfo = () => {
 
   return (
     <>
-      {open && <Modal setOpen={setOpen} />}
+      <Modal open={open} setOpen={setOpen} />
       <button className={styles.button} color="info" onClick={() => setOpen(true)} type="button">
         <span>
           <FormattedMessage id="learn.more" />

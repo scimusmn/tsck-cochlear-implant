@@ -11,16 +11,22 @@ const SAMPLE_DATA = [
     id: 'bird',
     data: bird,
     text: 'bird.description',
+    imgCredits: 'Andreas Trepte, www.avi-fauna.info',
+    soundCredits: 'Courtesy Daniel71953',
   },
   {
     id: 'traffic',
     data: frog,
     text: 'traffic.description',
+    imgCredits: 'ⓒiStock.com / life in shots',
+    soundCredits: 'Zapsplat, https://www.zapsplat.com',
   },
   {
     id: 'anthem',
     data: cat,
     text: 'anthem.description',
+    imgCredits: 'ⓒiStock.com / creisinger',
+    soundCredits: 'Daniel71953 / Creative Commons',
   },
 ];
 
@@ -64,13 +70,15 @@ const SamplePlayer = () => {
       </p>
       <div className={styles.cardContainer}>
         {SAMPLE_DATA.map(({
-          id, data, text,
+          id, data, text, imgCredits, soundCredits,
         }) => (
           <Card
             key={id}
             id={id}
             sample={data}
             text={text}
+            imgCredits={imgCredits}
+            soundCredits={soundCredits}
             toggleAudio={toggleAudio}
           />
         ))}

@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
@@ -8,7 +9,7 @@ import { playIcon } from '@utils/images/controls';
 import SampleImage from './SampleImage';
 
 const Card = ({
-  id, sample, text, toggleAudio,
+  id, sample, toggleAudio, text, imgCredits, soundCredits,
 }) => {
   const { audio } = useAudio();
   const recorderInUse = audio.status === 'recording' || audio.status === 'playing';
@@ -19,23 +20,28 @@ const Card = ({
   };
 
   return (
-    <div>
+    <div
+      onClick={toggleAudioHandler}
+      role="button"
+      tabIndex={0}
+    >
       <div className={`${samplePlaying ? styles.recording : ''} ${styles.card}`}>
         <SampleImage id={id} />
         <div className={styles.controls}>
           <p>
             <FormattedMessage id={text} />
           </p>
-          <button
-            disabled={recorderInUse || samplePlaying}
-            onClick={toggleAudioHandler}
-            type="button"
-          >
+          <div className={styles.button} disabled={recorderInUse || samplePlaying}>
             <img src={playIcon} alt="record" />
-          </button>
+          </div>
         </div>
       </div>
-      <div className={styles.credit}>Sound credit</div>
+      <div className={`${styles.credit} ${styles.margin}`}>
+        {imgCredits}
+      </div>
+      <div className={styles.credit}>
+        {soundCredits}
+      </div>
     </div>
   );
 };
@@ -46,7 +52,9 @@ Card.defaultProps = {
   id: '',
   sample: '',
   text: '',
-  toggleAudio: () => {},
+  imgCredits: '',
+  soundCredits: '',
+  toggleAudio: '',
 };
 
 Card.propTypes = {
@@ -54,4 +62,6 @@ Card.propTypes = {
   sample: PropTypes.string,
   text: PropTypes.string,
   toggleAudio: PropTypes.func,
+  imgCredits: PropTypes.string,
+  soundCredits: PropTypes.string,
 };
