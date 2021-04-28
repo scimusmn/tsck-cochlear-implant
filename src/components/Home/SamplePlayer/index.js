@@ -3,27 +3,27 @@ import { FormattedMessage } from 'react-intl';
 import { useAudio } from '@context/AudioContext';
 import * as styles from '@styles/modules/sampleplayer.module.scss';
 // import all sample audios
-import { bird, cat, frog } from '@utils/audios';
+import { songThrush, carTraffic, kuwaitFlag } from '@utils/audios';
 import Card from './Card';
 
 const SAMPLE_DATA = [
   {
     id: 'bird',
-    data: bird,
+    data: songThrush,
     text: 'bird.description',
     imgCredits: 'Andreas Trepte, www.avi-fauna.info',
     soundCredits: 'Courtesy Daniel71953',
   },
   {
     id: 'traffic',
-    data: frog,
+    data: carTraffic,
     text: 'traffic.description',
     imgCredits: 'ⓒiStock.com / life in shots',
     soundCredits: 'Zapsplat, https://www.zapsplat.com',
   },
   {
     id: 'anthem',
-    data: cat,
+    data: kuwaitFlag,
     text: 'anthem.description',
     imgCredits: 'ⓒiStock.com / creisinger',
     soundCredits: 'Daniel71953 / Creative Commons',

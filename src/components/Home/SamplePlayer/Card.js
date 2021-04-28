@@ -5,7 +5,7 @@ import { FormattedMessage } from 'react-intl';
 
 import { useAudio } from '@context/AudioContext';
 import * as styles from '@styles/modules/sampleplayer.module.scss';
-import { playIcon } from '@utils/images/controls';
+import { playIcon, stopIcon } from '@utils/images/controls';
 import SampleImage from './SampleImage';
 
 const Card = ({
@@ -31,8 +31,8 @@ const Card = ({
           <p>
             <FormattedMessage id={text} />
           </p>
-          <div className={styles.button} disabled={recorderInUse || samplePlaying}>
-            <img src={playIcon} alt="record" />
+          <div className={styles.button} disabled={recorderInUse}>
+            <img src={samplePlaying ? stopIcon : playIcon} alt="record" />
           </div>
         </div>
       </div>

@@ -1,9 +1,9 @@
-import bird from './bird.wav';
-import cat from './cat.wav';
-import frog from './frog.wav';
+import songThrush from './songThrush.wav';
+import kuwaitFlag from './kuwaitFlag.wav';
+import carTraffic from './carTraffic.wav';
 
 export {
-  bird,
-  cat,
-  frog,
+  songThrush,
+  carTraffic,
+  kuwaitFlag,
 };

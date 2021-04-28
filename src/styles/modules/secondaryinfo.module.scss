@@ -7,7 +7,7 @@
   width: 184.26px;
   height: 45px;
   border-radius: 10px;
-  color: $black;
+  color: $smm-black;
   &:active {
     background-color: $smm-black-blue;
   }
@@ -78,14 +78,14 @@
 .textContainer {
   padding: 50px 0;
   flex: 3;
-  color: $black;
+  color: $smm-black;
 
   h3 {
     font-size: 40px;
     padding-bottom: 10px;
     display: inline-block;
     font-weight: 700;
-    border-bottom: 1px solid $black;
+    border-bottom: 1px solid $smm-black;
   }
 
   .bulletPointContainer {

@@ -9,6 +9,7 @@
   @include localize(font-weight, 700, 500);
   @include localize(line-height, 98px, 98.5px);
   @include localize(letter-spacing, 1.25px, 0.18em);
+  @include localize(padding-right, 0, 60px);
 }
 
 .description {
