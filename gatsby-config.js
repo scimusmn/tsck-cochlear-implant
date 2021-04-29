@@ -50,7 +50,7 @@ module.exports = {
         fonts: [
           `montserrat\:300,400,400i,500,600,700,900`,
           `open sans\:400,500,600,700`,
-          `tajawal\:500,600,700`,
+          `tajawal\:300,400,400i,500,600,700,900`,
         ],
         display: 'swap',
       },

@@ -5,6 +5,7 @@
 }
 
 .info {
+  height: 32px;
   @include localize(font-size, 30px, 25px);
   @include localize(font-weight, 700, 400);
   @include localize(line-height, 32px, 34px);
@@ -27,6 +28,7 @@
   border: 1px solid $smm-green;
   border-radius: 15px;
   width: 243.28px;
+  height: 340px;
   overflow: hidden;
   text-align: center;
   .image {
@@ -43,6 +45,7 @@
       margin-bottom: 16px;
       font-weight: 500;
       font-size: 18px;
+      height: 23px;
       @include localize(line-height, 22px, 25px);
     }
     .button {
@@ -58,11 +61,12 @@
         opacity: 0.7;
         pointer-events: none;
       }
-      &:active {
-        background-color: $smm-black-blue;
-      }
     }
   }
+}
+
+.card:active .button {
+  opacity: 0.7;
 }
 
 .credit {
