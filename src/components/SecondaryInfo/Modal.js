@@ -44,6 +44,7 @@ const Modal = ({ open, setOpen }) => {
                 src="../../utils/images/cochlear-ar.png"
                 alt="sample-image"
                 loading="eager"
+                quality={100}
               />
             )}
             {showImages.en && (
@@ -51,11 +52,14 @@ const Modal = ({ open, setOpen }) => {
                 src="../../utils/images/cochlear-en.jpg"
                 alt="sample-image"
                 loading="eager"
+                quality={100}
               />
             )}
           </div>
           <div className={styles.textContainer}>
-            <h3 className="bullet-heading"><FormattedMessage id="secondaryinfo.heading" /></h3>
+            <h3 className="bullet-heading">
+              <FormattedMessage id="secondaryinfo.heading" />
+            </h3>
             <div className={styles.bulletPointContainer}>
               {[1, 2, 3, 4].map((value) => (
                 <BulletPoint
@@ -69,7 +73,6 @@ const Modal = ({ open, setOpen }) => {
         </div>
       </div>
     </div>
-
   );
 };
 

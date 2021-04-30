@@ -20,7 +20,8 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-sass',
       options: {
-        data: '@import "src/styles/variables"; @import "src/styles/mixins"; @import "src/styles/shared";',
+        data:
+          '@import "src/styles/variables"; @import "src/styles/mixins"; @import "src/styles/shared";',
         includePaths: ['src/components'],
       },
     },
@@ -39,8 +40,8 @@ module.exports = {
         name: 'app-default',
         short_name: 'app',
         start_url: '/',
-        background_color: '#ffffff',
-        theme_color: '#000000',
+        background_color: '#0d003a',
+        theme_color: '#242466',
         display: 'minimal-ui',
       },
     },
