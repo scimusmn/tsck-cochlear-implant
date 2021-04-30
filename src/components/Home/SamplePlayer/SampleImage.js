@@ -12,6 +12,7 @@ const SampleImage = ({ id }) => {
           alt="sample-image"
           style={{ display: 'block', height: 221 }}
           loading="eager"
+          quality={100}
         />
       );
     }
@@ -22,6 +23,7 @@ const SampleImage = ({ id }) => {
           alt="sample-image"
           style={{ display: 'block', height: 221 }}
           loading="eager"
+          quality={100}
         />
       );
     }
@@ -32,6 +34,7 @@ const SampleImage = ({ id }) => {
           alt="sample-image"
           style={{ display: 'block', height: 221 }}
           loading="eager"
+          quality={100}
         />
       );
     }

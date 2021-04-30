@@ -1,5 +1,10 @@
 .audioContainer {
-  background: linear-gradient(180deg, #0d003a 0%, #0d003a 0.01%, #242466 100%);
+  background: linear-gradient(
+    180deg,
+    $smm-black 0%,
+    $smm-black 0.01%,
+    $smm-dark-blue 100%
+  );
   border: 2px solid $smm-green;
   border-radius: 20px;
   display: flex;

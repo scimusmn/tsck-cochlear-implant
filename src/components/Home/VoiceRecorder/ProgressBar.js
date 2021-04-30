@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { useAudio } from '@context/AudioContext';
 import * as styles from '@styles/modules/voicerecorder.module.scss';
 
-const MAX_RECORDING_TIME = 10;
+const MAX_RECORDING_TIME = 8;
 
 const ProgressBar = forwardRef(({
   mediaBlobUrl, completeRecording,
@@ -35,7 +35,7 @@ const ProgressBar = forwardRef(({
           clearInterval(interval.current);
         } else {
           increment += 10;
-          const percent = Math.min(increment / 100, 100);
+          const percent = Math.min(increment / 80, 100);
           const background = `linear-gradient(28deg, rgba(0,0,0,1) 0%, ${color} 100%)`;
           progressBar.current.style.width = `${percent}%`;
           progressBar.current.style.background = background;

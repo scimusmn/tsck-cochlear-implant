@@ -14,11 +14,16 @@ body {
   color: $white;
   font-family: $smm-default-font-ar;
   text-align: right;
+  user-select: none;
 
   &.en-us {
     font-family: $smm-default-font-en;
     text-align: left;
   }
+}
+
+img {
+  -webkit-user-drag: none;
 }
 
 p {

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 import { StaticImage } from 'gatsby-plugin-image';
@@ -8,15 +8,26 @@ import cross from '@utils/images/cross.svg';
 import { useLocale, LOCALES } from '@context/LocaleContext';
 import BulletPoint from './BulletPoint';
 
-const Modal = ({ setOpen }) => {
+const Modal = ({ open, setOpen }) => {
+  const [showImages, setShowImages] = useState({ ar: true, en: true });
   const { locale } = useLocale();
+  const visibility = open ? 'visible' : 'hidden';
+
+  useEffect(() => {
+    if (open) {
+      setShowImages({
+        ar: locale === LOCALES.ARABIC,
+        en: locale === LOCALES.ENGLISH,
+      });
+    }
+  }, [open]);
 
   const closeModal = () => {
     setOpen(false);
   };
 
   return (
-    <div className={styles.modal}>
+    <div style={{ visibility }} className={styles.modal}>
       <div className={styles.container}>
         <button
           type="button"
@@ -28,22 +39,27 @@ const Modal = ({ setOpen }) => {
         </button>
         <div className={styles.secondaryContainer}>
           <div className={styles.imageContainer}>
-            {locale === LOCALES.ARABIC ? (
+            {showImages.ar && (
               <StaticImage
                 src="../../utils/images/cochlear-ar.png"
                 alt="sample-image"
                 loading="eager"
+                quality={100}
               />
-            ) : (
+            )}
+            {showImages.en && (
               <StaticImage
-                src="../../utils/images/cochlear-en.png"
+                src="../../utils/images/cochlear-en.jpg"
                 alt="sample-image"
                 loading="eager"
+                quality={100}
               />
             )}
           </div>
           <div className={styles.textContainer}>
-            <h3 className="bullet-heading"><FormattedMessage id="secondaryinfo.heading" /></h3>
+            <h3 className="bullet-heading">
+              <FormattedMessage id="secondaryinfo.heading" />
+            </h3>
             <div className={styles.bulletPointContainer}>
               {[1, 2, 3, 4].map((value) => (
                 <BulletPoint
@@ -57,12 +73,16 @@ const Modal = ({ setOpen }) => {
         </div>
       </div>
     </div>
-
   );
 };
 
 export default Modal;
 
+Modal.defaultProps = {
+  open: false,
+};
+
 Modal.propTypes = {
   setOpen: PropTypes.func.isRequired,
+  open: PropTypes.bool,
 };

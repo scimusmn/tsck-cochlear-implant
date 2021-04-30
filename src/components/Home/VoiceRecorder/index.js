@@ -76,9 +76,9 @@ const VoiceRecorder = () => {
       />
       <div className={styles.buttonsContainer}>
         {renderControl(
-          disableControl || !!mediaBlobUrl || disableControl || audio.status === 'recording',
-          recordIcon,
-          record,
+          !!audio.samplePlaying || (!mediaBlobUrl && audio.status !== 'recording'),
+          trashIcon,
+          deleteRecording,
         )}
         {renderControl(
           disableControl || !mediaBlobUrl || audio.status === 'recording',
@@ -86,9 +86,9 @@ const VoiceRecorder = () => {
           play,
         )}
         {renderControl(
-          !!audio.samplePlaying || (!mediaBlobUrl && audio.status !== 'recording'),
-          trashIcon,
-          deleteRecording,
+          disableControl || !!mediaBlobUrl || disableControl || audio.status === 'recording',
+          recordIcon,
+          record,
         )}
       </div>
     </div>

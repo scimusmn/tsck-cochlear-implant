@@ -7,9 +7,13 @@
   width: 184.26px;
   height: 45px;
   border-radius: 10px;
-  color: $black;
+  color: $smm-black;
+  &:active {
+    opacity: 0.7;
+  }
   span {
     font-weight: 700;
+    height: 28px;
     @include localize(font-size, 25px, 20px);
     @include localize(line-height, 35px, 27px);
   }
@@ -75,14 +79,14 @@
 .textContainer {
   padding: 50px 0;
   flex: 3;
-  color: $black;
+  color: $smm-black;
 
   h3 {
     font-size: 40px;
     padding-bottom: 10px;
     display: inline-block;
     font-weight: 700;
-    border-bottom: 1px solid $black;
+    border-bottom: 1px solid $smm-black;
   }
 
   .bulletPointContainer {
