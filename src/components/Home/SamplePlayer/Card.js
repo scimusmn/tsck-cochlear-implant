@@ -1,12 +1,15 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
+
 import { useAudio } from '@context/AudioContext';
 import * as styles from '@styles/modules/sampleplayer.module.scss';
-import { playIcon } from '@utils/images/controls';
+import { playIcon, stopIcon } from '@utils/images/controls';
+import SampleImage from './SampleImage';
 
 const Card = ({
-  id, sample, image, text, toggleAudio,
+  id, sample, toggleAudio, text, imgCredits, soundCredits,
 }) => {
   const { audio } = useAudio();
   const recorderInUse = audio.status === 'recording' || audio.status === 'playing';
@@ -17,29 +20,28 @@ const Card = ({
   };
 
   return (
-    <div>
+    <div
+      onClick={toggleAudioHandler}
+      role="button"
+      tabIndex={0}
+    >
       <div className={`${samplePlaying ? styles.recording : ''} ${styles.card}`}>
-        {/* <div
-          className={styles.image}
-          style={{
-            background: `url('${image}')  0% 0% / cover`,
-          }}
-        /> */}
-        <img className={styles.image} src={image} alt="" />
+        <SampleImage id={id} />
         <div className={styles.controls}>
           <p>
             <FormattedMessage id={text} />
           </p>
-          <button
-            disabled={recorderInUse || samplePlaying}
-            onClick={toggleAudioHandler}
-            type="button"
-          >
-            <img src={playIcon} alt="record" />
-          </button>
+          <div className={styles.button} disabled={recorderInUse}>
+            <img src={samplePlaying ? stopIcon : playIcon} alt="record" />
+          </div>
         </div>
       </div>
-      <div className={styles.credit}>Sound credit</div>
+      <div className={`${styles.credit} ${styles.margin}`}>
+        {imgCredits}
+      </div>
+      <div className={styles.credit}>
+        {soundCredits}
+      </div>
     </div>
   );
 };
@@ -49,15 +51,17 @@ export default Card;
 Card.defaultProps = {
   id: '',
   sample: '',
-  image: null,
   text: '',
-  toggleAudio: () => {},
+  imgCredits: '',
+  soundCredits: '',
+  toggleAudio: '',
 };
 
 Card.propTypes = {
   id: PropTypes.string,
   sample: PropTypes.string,
-  image: PropTypes.string,
   text: PropTypes.string,
   toggleAudio: PropTypes.func,
+  imgCredits: PropTypes.string,
+  soundCredits: PropTypes.string,
 };

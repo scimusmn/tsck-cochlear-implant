@@ -1,0 +1,16 @@
+.audioContainer {
+  background: linear-gradient(
+    180deg,
+    $smm-black 0%,
+    $smm-black 0.01%,
+    $smm-dark-blue 100%
+  );
+  border: 2px solid $smm-green;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 950px;
+  height: 475px;
+  padding: 30px 50px 0 50px;
+}

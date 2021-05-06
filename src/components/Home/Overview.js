@@ -5,15 +5,13 @@ import * as styles from '@styles/modules/overview.module.scss';
 
 const Overview = () => (
   <>
-    <div className={styles.container}>
-      <h1 className={styles.heading}>
-        <FormattedMessage id="heading" />
-      </h1>
-      <div className={styles.divider} />
-      <p className={styles.description}>
-        <FormattedMessage id="description" />
-      </p>
-    </div>
+    <h1 className={styles.heading}>
+      <FormattedMessage id="heading" />
+    </h1>
+    <div className={styles.divider} />
+    <p className={styles.description}>
+      <FormattedMessage id="description" />
+    </p>
     <SecodaryInfo />
   </>
 );

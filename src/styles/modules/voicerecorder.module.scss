@@ -1,5 +1,10 @@
 .container {
-  background: linear-gradient(180deg, #0d003a 0%, #0d003a 0.01%, #242466 100%);
+  background: linear-gradient(
+    180deg,
+    $smm-black 0%,
+    $smm-black 0.01%,
+    $smm-dark-blue 100%
+  );
   border: 2px solid $smm-green;
   border-radius: 20px;
   display: flex;
@@ -21,17 +26,9 @@
   height: 22.61px;
   margin: 35px 0 65px 0;
   div {
-    height: -webkit-fill-available;
+    height: 21px;
     width: 0;
   }
-}
-
-.red {
-  background: linear-gradient(28deg, rgba(0, 0, 0, 1) 0%, $smm-red 100%);
-}
-
-.green {
-  background: linear-gradient(28deg, rgba(0, 0, 0, 1) 0%, $smm-green 100%);
 }
 
 .buttonsContainer {
@@ -48,13 +45,14 @@
     justify-content: center;
     width: 45px;
     height: 45px;
-
     &[disabled] {
       opacity: 0.7;
       pointer-events: none;
     }
+    &:active {
+      opacity: 0.7;
+    }
   }
-
   img {
     display: block;
     width: 45px;

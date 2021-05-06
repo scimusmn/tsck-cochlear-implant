@@ -3,29 +3,30 @@ import { FormattedMessage } from 'react-intl';
 import { useAudio } from '@context/AudioContext';
 import * as styles from '@styles/modules/sampleplayer.module.scss';
 // import all sample audios
-import { bird, cat, frog } from '@utils/audios';
-// import all images
-import { birdImg, trafficImg, anthemImg } from '@utils/images/samples';
+import { songThrush, carTraffic, kuwaitFlag } from '@utils/audios';
 import Card from './Card';
 
 const SAMPLE_DATA = [
   {
     id: 'bird',
-    data: bird,
-    image: birdImg,
+    data: songThrush,
     text: 'bird.description',
+    imgCredits: 'Andreas Trepte, www.avi-fauna.info',
+    soundCredits: 'Courtesy Daniel71953',
   },
   {
     id: 'traffic',
-    data: frog,
-    image: trafficImg,
+    data: carTraffic,
     text: 'traffic.description',
+    imgCredits: 'ⓒiStock.com / life in shots',
+    soundCredits: 'Zapsplat, https://www.zapsplat.com',
   },
   {
     id: 'anthem',
-    data: cat,
-    image: anthemImg,
+    data: kuwaitFlag,
     text: 'anthem.description',
+    imgCredits: 'ⓒiStock.com / creisinger',
+    soundCredits: 'Daniel71953 / Creative Commons',
   },
 ];
 
@@ -69,14 +70,15 @@ const SamplePlayer = () => {
       </p>
       <div className={styles.cardContainer}>
         {SAMPLE_DATA.map(({
-          id, data, image, text,
+          id, data, text, imgCredits, soundCredits,
         }) => (
           <Card
             key={id}
             id={id}
             sample={data}
-            image={image}
             text={text}
+            imgCredits={imgCredits}
+            soundCredits={soundCredits}
             toggleAudio={toggleAudio}
           />
         ))}
