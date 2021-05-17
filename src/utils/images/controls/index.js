@@ -3,6 +3,7 @@ import playIcon from './play.svg';
 import recordIcon from './record.svg';
 import stopIcon from './stop.svg';
 import trashIcon from './trash.svg';
+import resetIcon from './reset.svg';
 
 export {
   pause,
@@ -10,4 +11,5 @@ export {
   recordIcon,
   stopIcon,
   trashIcon,
+  resetIcon,
 };

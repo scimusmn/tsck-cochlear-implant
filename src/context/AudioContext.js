@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const AudioContext = React.createContext();
 
 function AudioProvider({ children }) {
-  const [audio, setAudio] = useState({});
+  const [audio, setAudio] = useState({ status: null, samplePlaying: null });
 
   const value = { audio, setAudio };
 

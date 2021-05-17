@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -12,7 +13,7 @@ const Card = ({
   id, sample, toggleAudio, text, imgCredits, soundCredits,
 }) => {
   const { audio } = useAudio();
-  const recorderInUse = audio.status === 'recording' || audio.status === 'playing';
+  const recorderInUse = audio.status === 'recording';
   const samplePlaying = audio.samplePlaying === id;
 
   const toggleAudioHandler = () => {
@@ -37,10 +38,10 @@ const Card = ({
         </div>
       </div>
       <div className={`${styles.credit} ${styles.margin}`}>
-        {imgCredits}
+        Image: {imgCredits}
       </div>
       <div className={styles.credit}>
-        {soundCredits}
+        Sound: {soundCredits}
       </div>
     </div>
   );

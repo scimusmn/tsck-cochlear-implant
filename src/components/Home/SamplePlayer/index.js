@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { useAudio } from '@context/AudioContext';
 import * as styles from '@styles/modules/sampleplayer.module.scss';
@@ -11,22 +11,22 @@ const SAMPLE_DATA = [
     id: 'bird',
     data: songThrush,
     text: 'bird.description',
-    imgCredits: 'Andreas Trepte, www.avi-fauna.info',
-    soundCredits: 'Courtesy Daniel71953',
+    imgCredits: 'Andreas Trepte / Wikimedia Commons / CC-BY-SA 2.5',
+    soundCredits: 'Field Recording Geek / SoundCamp / All rights reserved',
   },
   {
     id: 'traffic',
     data: carTraffic,
     text: 'traffic.description',
     imgCredits: 'ⓒiStock.com / life in shots',
-    soundCredits: 'Zapsplat, https://www.zapsplat.com',
+    soundCredits: 'https://www.zapsplat.com',
   },
   {
     id: 'anthem',
     data: kuwaitFlag,
     text: 'anthem.description',
     imgCredits: 'ⓒiStock.com / creisinger',
-    soundCredits: 'Daniel71953 / Creative Commons',
+    soundCredits: 'U.S. Navy /Wikimedia Commons / Public Domain',
   },
 ];
 
@@ -40,7 +40,7 @@ const SamplePlayer = () => {
     playback.play();
     playback.onended = () => {
       playback.pause();
-      setAudio({ ...audio, samplePlaying: '' });
+      setAudio({ status: 'idle', samplePlaying: null });
       setCurrentAudio(null);
     };
   };
@@ -49,7 +49,7 @@ const SamplePlayer = () => {
     if (currentAudio) {
       const url = new URL(currentAudio.currentSrc);
       if (url.pathname === audioFile) {
-        setAudio({ ...audio, samplePlaying: '' });
+        setAudio({ ...audio, samplePlaying: null });
         currentAudio.pause();
         setCurrentAudio(null);
       } else {
@@ -62,6 +62,14 @@ const SamplePlayer = () => {
       playAudio(audioFile);
     }
   };
+
+  useEffect(() => {
+    if ((audio.status === 'playing' || audio.status === 'recording') && currentAudio) {
+      setAudio({ ...audio, samplePlaying: null });
+      currentAudio.pause();
+      setCurrentAudio(null);
+    }
+  }, [audio.status]);
 
   return (
     <div className={styles.container}>

@@ -1,38 +1,29 @@
 .container {
-  background: linear-gradient(
-    180deg,
-    $smm-black 0%,
-    $smm-black 0.01%,
-    $smm-dark-blue 100%
-  );
-  border: 2px solid $smm-green;
-  border-radius: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 950px;
+  @extend .audioContainer;
+
   height: 450px;
-  padding: 25px 50px;
 }
 
 .info {
+  padding-top: 100px;
   @include localize(font-size, 30px, 25px);
   @include localize(font-weight, 700, 400);
   @include localize(line-height, 32px, 34px);
 }
 
 .progressBar {
-  border: 1px solid;
+  border: 2px solid;
   height: 22.61px;
-  margin: 35px 0 65px 0;
+  margin: 35px 0;
   div {
-    height: 21px;
+    height: 19px;
     width: 0;
   }
 }
 
 .buttonsContainer {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   margin: 0 auto;
   width: 40%;
@@ -43,8 +34,6 @@
     border-radius: 50%;
     display: flex;
     justify-content: center;
-    width: 45px;
-    height: 45px;
     &[disabled] {
       opacity: 0.7;
       pointer-events: none;
@@ -52,11 +41,28 @@
     &:active {
       opacity: 0.7;
     }
+    img {
+      display: block;
+    }
   }
-  img {
-    display: block;
-    width: 45px;
-    height: 45px;
+
+  button:nth-child(1) {
+    width: 75px;
+    height: 75px;
+    margin: 0 auto;
+    img {
+      width: 75px;
+      height: 75px;
+    }
+  }
+  button:nth-child(2) {
+    width: 40px;
+    height: 40px;
+    margin: 35px auto;
+    img {
+      width: 40px;
+      height: 40px;
+    }
   }
 }
 

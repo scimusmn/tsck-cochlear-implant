@@ -5,10 +5,10 @@ import PropTypes from 'prop-types';
 import { useAudio } from '@context/AudioContext';
 import * as styles from '@styles/modules/voicerecorder.module.scss';
 
-const MAX_RECORDING_TIME = 8;
+const MAX_RECORDING_TIME = 5;
 
 const ProgressBar = forwardRef(({
-  mediaBlobUrl, completeRecording,
+  mediaBlobUrl, completeRecording, completePlayback,
 }, ref) => {
   const { audio } = useAudio();
   const progressBar = useRef(null);
@@ -35,7 +35,7 @@ const ProgressBar = forwardRef(({
           clearInterval(interval.current);
         } else {
           increment += 10;
-          const percent = Math.min(increment / 80, 100);
+          const percent = Math.min(increment / (MAX_RECORDING_TIME * 10), 100);
           const background = `linear-gradient(28deg, rgba(0,0,0,1) 0%, ${color} 100%)`;
           progressBar.current.style.width = `${percent}%`;
           progressBar.current.style.background = background;
@@ -46,22 +46,16 @@ const ProgressBar = forwardRef(({
 
   useEffect(() => {
     if (audio.status === 'recording') {
-      startInterval(
-        intervalRecord,
-        () => {
-          completeRecording();
-        },
-      );
+      startInterval(intervalRecord, completeRecording);
     }
     if (audio.status === 'playing') {
-      startInterval(
-        intervalPlayback,
-      );
+      startInterval(intervalPlayback, completePlayback);
     }
     if (audio.status === 'stopping') {
       clearInterval(intervalRecord.current);
     }
     if (audio.status === 'playback_aborted') {
+      if (progressBar.current) progressBar.current.style.width = 0;
       clearInterval(intervalPlayback.current);
     }
   }, [audio.status]);
@@ -100,9 +94,11 @@ export default ProgressBar;
 ProgressBar.defaultProps = {
   mediaBlobUrl: '',
   completeRecording: () => {},
+  completePlayback: () => {},
 };
 
 ProgressBar.propTypes = {
   mediaBlobUrl: PropTypes.string,
   completeRecording: PropTypes.func,
+  completePlayback: PropTypes.func,
 };
