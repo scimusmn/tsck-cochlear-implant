@@ -23,6 +23,7 @@ body {
 
   > * {
     :focus-visible { outline: none; }
+    :focus { outline: none; }
   }
 }
 
