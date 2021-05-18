@@ -77,7 +77,7 @@ const VoiceRecorder = () => {
   }, [status]);
 
   useEffect(() => {
-    if (audio.samplePlaying && (audio.status === 'recording' || audio.status === 'playing')) {
+    if (audio.samplePlaying && !!mediaBlobUrl) {
       deleteRecording();
     }
   }, [audio.samplePlaying]);
