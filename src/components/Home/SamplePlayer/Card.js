@@ -13,7 +13,6 @@ const Card = ({
   id, sample, toggleAudio, text, imgCredits, soundCredits,
 }) => {
   const { audio } = useAudio();
-  const recorderInUse = audio.status === 'recording';
   const samplePlaying = audio.samplePlaying === id;
 
   const toggleAudioHandler = () => {
@@ -32,7 +31,7 @@ const Card = ({
           <p>
             <FormattedMessage id={text} />
           </p>
-          <div className={styles.button} disabled={recorderInUse}>
+          <div className={styles.button}>
             <img src={samplePlaying ? stopIcon : playIcon} alt="record" />
           </div>
         </div>

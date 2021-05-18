@@ -67,6 +67,10 @@
   }
 }
 
+.button:active {
+  opacity: 0.7;
+}
+
 .card:active .button {
   opacity: 0.7;
 }
