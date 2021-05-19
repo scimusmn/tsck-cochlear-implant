@@ -22,8 +22,12 @@ body {
   }
 
   > * {
-    :focus-visible { outline: none; }
-    :focus { outline: none; }
+    :focus-visible {
+      outline: none;
+    }
+    :focus {
+      outline: none;
+    }
   }
 }
 

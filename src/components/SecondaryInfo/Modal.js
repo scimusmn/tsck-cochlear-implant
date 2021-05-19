@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
-import { StaticImage } from 'gatsby-plugin-image';
 
 import * as styles from '@styles/modules/secondaryinfo.module.scss';
 import cross from '@utils/images/cross.svg';
 import { useLocale, LOCALES } from '@context/LocaleContext';
+import { infoArabicImg, infoEnglishImg } from '@utils/images/secondaryInfo';
 import BulletPoint from './BulletPoint';
 
 const Modal = ({ open, setOpen }) => {
-  const [showImages, setShowImages] = useState({ ar: true, en: true });
+  const [showImages, setShowImages] = useState({ ar: true, en: false });
   const { locale } = useLocale();
   const visibility = open ? 'visible' : 'hidden';
 
@@ -39,22 +39,16 @@ const Modal = ({ open, setOpen }) => {
         </button>
         <div className={styles.secondaryContainer}>
           <div className={styles.imageContainer}>
-            {showImages.ar && (
-              <StaticImage
-                src="../../utils/images/cochlear-ar.png"
-                alt="sample-image"
-                loading="eager"
-                quality={100}
-              />
-            )}
-            {showImages.en && (
-              <StaticImage
-                src="../../utils/images/cochlear-en.jpg"
-                alt="sample-image"
-                loading="eager"
-                quality={100}
-              />
-            )}
+            <img
+              src={infoArabicImg}
+              alt="info"
+              style={{ visibility: !showImages.ar && 'hidden' }}
+            />
+            <img
+              src={infoEnglishImg}
+              alt="info"
+              style={{ visibility: !showImages.en && 'hidden' }}
+            />
           </div>
           <div className={styles.textContainer}>
             <h3 className="bullet-heading">

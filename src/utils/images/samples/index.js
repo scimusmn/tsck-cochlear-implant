@@ -1,9 +1,5 @@
-import birdImg from './bird.png';
-import trafficImg from './traffic.png';
-import anthemImg from './anthem.png';
+import birdImg from './min/bird.png';
+import trafficImg from './min/traffic.png';
+import anthemImg from './min/anthem.png';
 
-export {
-  birdImg,
-  trafficImg,
-  anthemImg,
-};
+export { birdImg, trafficImg, anthemImg };
