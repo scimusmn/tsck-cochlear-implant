@@ -1,9 +1,5 @@
-import songThrush from './songThrush.wav';
-import kuwaitFlag from './kuwaitFlag.wav';
-import carTraffic from './carTraffic.wav';
+import birdAudio from './bird.wav';
+import trafficAudio from './traffic.wav';
+import anthemAudio from './anthem.wav';
 
-export {
-  songThrush,
-  carTraffic,
-  kuwaitFlag,
-};
+export { birdAudio, trafficAudio, anthemAudio };

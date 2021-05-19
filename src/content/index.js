@@ -5,9 +5,9 @@ export default {
     heading: 'How do things sound through a cochlear implant?',
     description:
       'Only people with cochlear implants really know what they sound like. These simulations represent researchers’ attempts to mimic audio from this technology.',
-    'recorder.info': 'Hear your voice through simulated cochlear implant.',
+    'recorder.info': 'Hear your voice through a simulated cochlear implant.',
     'learn.more': 'Learn more',
-    'sample.info': 'Hear other sounds through simulated cochlear implant',
+    'sample.info': 'Hear other sounds through a simulated cochlear implant.',
     'toggle.language': 'العربية',
     'bird.description': 'Bird song',
     'traffic.description': 'Traffic',
