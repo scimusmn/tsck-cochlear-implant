@@ -25,7 +25,7 @@ body {
 *:focus,
 *:focus-visible {
   outline: none;
-  -webkit-appearance: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 img {
