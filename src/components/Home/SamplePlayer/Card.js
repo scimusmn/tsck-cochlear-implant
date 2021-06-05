@@ -23,11 +23,11 @@ const Card = ({
   };
 
   return (
-    <div
+    <button
       onClick={toggleAudioHandler}
       onKeyDown={toggleAudioHandler}
-      role="button"
-      tabIndex={0}
+      type="button"
+      className={styles.buttonWrapper}
     >
       <div
         className={`${samplePlaying ? styles.recording : ''} ${styles.card}`}
@@ -50,7 +50,7 @@ const Card = ({
         Image: {imgCredits}
       </div>
       <div className={styles.credit}>Sound: {soundCredits}</div>
-    </div>
+    </button>
   );
 };
 
