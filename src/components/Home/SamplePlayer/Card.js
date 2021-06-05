@@ -23,20 +23,20 @@ const Card = ({
   };
 
   return (
-    <button
-      onClick={toggleAudioHandler}
-      onKeyDown={toggleAudioHandler}
-      type="button"
-      className={styles.buttonWrapper}
-    >
-      <div
+    // <button
+    //   onClick={toggleAudioHandler}
+    //   onKeyDown={toggleAudioHandler}
+    //   type="button"
+    //   className={styles.buttonWrapper}
+    // >
+    <div>
+      <button
+        type="button"
+        onClick={toggleAudioHandler}
+        onKeyDown={toggleAudioHandler}
         className={`${samplePlaying ? styles.recording : ''} ${styles.card}`}
       >
-        <img
-          src={thumbnail}
-          alt="sample"
-          style={{ display: 'block', height: 221 }}
-        />
+        <img src={thumbnail} alt="sample" className={styles.image} />
         <div className={styles.controls}>
           <p>
             <FormattedMessage id={text} />
@@ -45,12 +45,13 @@ const Card = ({
             <img src={samplePlaying ? stopIcon : playIcon} alt="record" />
           </div>
         </div>
-      </div>
+      </button>
       <div className={`${styles.credit} ${styles.margin}`}>
         Image: {imgCredits}
       </div>
       <div className={styles.credit}>Sound: {soundCredits}</div>
-    </button>
+    </div>
+    // </button>
   );
 };
 
