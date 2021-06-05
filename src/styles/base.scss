@@ -25,6 +25,7 @@ body {
 *:focus,
 *:focus-visible {
   outline: none;
+  -webkit-appearance: none;
 }
 
 img {
