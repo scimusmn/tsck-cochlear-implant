@@ -1,7 +1,9 @@
 {
   "extends": ["stylelint-config-standard", "stylelint-config-prettier"],
   "ignoreFiles": [
-    "public/*.*css"
+    "public/*.*css",
+    "third-party/*",
+    "startup/*"
   ],
   "plugins": [
     "stylelint-order"
