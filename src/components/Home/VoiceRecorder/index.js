@@ -1,5 +1,5 @@
 import React, { useState, createRef, useEffect } from 'react';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
 import { useReactMediaRecorder } from 'react-media-recorder';
 import { useAudio } from '@context/AudioContext';
 import * as styles from '@styles/modules/voicerecorder.module.scss';
@@ -15,6 +15,9 @@ const VoiceRecorder = () => {
   const [audioDeleted, setAudioDeleted] = useState(false);
   const ref = createRef();
   const { audio, setAudio } = useAudio();
+
+  const intl = useIntl();
+  const textDir = (intl.locale.includes('ar') ? 'rtl' : 'ltr');
 
   const {
     status,
@@ -87,7 +90,7 @@ const VoiceRecorder = () => {
 
   return (
     <div className={styles.container}>
-      <p className={styles.info}>
+      <p className={styles.info} dir={textDir}>
         <FormattedMessage id="recorder.info" />
       </p>
       <ProgressBar

@@ -6,7 +6,7 @@ export default {
     description:
       'Only people with cochlear implants really know what they sound like. These simulations represent researchers’ attempts to mimic audio from this technology.',
     'recorder.info': 'Hear your voice through a simulated cochlear implant.',
-    'learn.more': 'Learn more',
+    'learn.more': 'How does it work?',
     'sample.info': 'Hear other sounds through a simulated cochlear implant.',
     'toggle.language': 'العربية',
     'bird.description': 'Bird song',
@@ -14,13 +14,13 @@ export default {
     'anthem.description': 'Kuwaiti national anthem',
     'secondaryinfo.heading': 'How cochlear implants work',
     'secondaryinfo.p1':
-      'A microphone picks up a sound and converts them into electrical signals.',
+      'A microphone picks up sounds and converts them into electrical signals.',
     'secondaryinfo.p2':
       'A computer filters the electrical signals to boost the frequencies most important for understanding common sounds.',
     'secondaryinfo.p3':
-      'A transmitter sends the filtered electrical singals to a receiver surgically implanted in the head.',
+      'A transmitter sends the filtered electrical signals to a receiver surgically implanted in the head.',
     'secondaryinfo.p4':
-      'The receiver sends the signals to the electrodes implanted in the cochlea, a hollow, spiral bone in the inner ear. The electrical signals stimulate nerver fibers in the cochlea. The brain interprets this information as sound.',
+      'The receiver sends the signals to the electrodes implanted in the cochlea, a hollow, spiral bone in the inner ear. The electrical signals stimulate nerve fibers in the cochlea. The brain interprets this information as sound.',
   },
 
   [LOCALES.ARABIC]: {
@@ -28,7 +28,7 @@ export default {
     description:
       'فقط الأشخاص الذين يستخدمون قوقعة الأذن المزروعة يعرفون حقًا كيف تبدو أصوات العالم عِبرَها. تمثل هذه المحاكاة محاولات الباحثين لتقليد الصوت الناتج عن تلك التقنية.',
     'recorder.info': 'اسمع صوتك من خلال محاكاة لقوقعة الأذن المزروعة.',
-    'learn.more': 'تعلَّم المزيد',
+    'learn.more': 'كيف يعمل؟',
     'sample.info': 'اسمع أصواتًا أخرى من خلال محاكاة لقوقعة الأذن المزروعة.',
     'toggle.language': 'English',
     'bird.description': 'تغريد طائر',
@@ -41,6 +41,6 @@ export default {
     'secondaryinfo.p3':
       'يقوم جهاز إرسال بنقل الإشارات الكهربائية  المُنقّاة إلى جهاز استقبال مزروع جراحيًّا في الرأس.',
     'secondaryinfo.p4':
-      'يرسل جهاز الاستقبال الإشارات إلى الأقطاب الكهربائية المزروعة في القوقعة، وهي عظمة حلزونية مجوفة موجودة في الأذن الداخلية. تحفِّز تلك الإشارات الكهربائية الألياف العصبية الموجودة في القوقعة. ويقوم المخ بترجمة هذا التحفيز على أنه صوت.',
+      'يرسل جهاز الاستقبال الإشارات إلى الأقطاب الكهربائية المزروعة في القوقعة، وهي عظمة حلزونية مجوَّفة موجودة في الأذن الداخلية. تحفِّز تلك الإشارات الكهربائية الألياف العصبية الموجودة في القوقعة. ويقوم المخ بترجمة هذا التحفيز على أنه صوت.',
   },
 };

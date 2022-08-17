@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
 import { useAudio } from '@context/AudioContext';
 import * as styles from '@styles/modules/sampleplayer.module.scss';
 // import all sample audios
@@ -29,7 +29,7 @@ const SAMPLE_DATA = [
     data: anthemAudio,
     text: 'anthem.description',
     imgCredits: 'ⓒiStock.com / creisinger',
-    soundCredits: 'U.S. Navy /Wikimedia Commons / Public Domain',
+    soundCredits: 'U.S. Navy / Wikimedia Commons / Public Domain',
     thumbnail: anthemImg,
   },
 ];
@@ -37,6 +37,9 @@ const SAMPLE_DATA = [
 const SamplePlayer = () => {
   const [currentAudio, setCurrentAudio] = useState(null);
   const { audio, setAudio } = useAudio();
+
+  const intl = useIntl();
+  const textDir = (intl.locale.includes('ar') ? 'rtl' : 'ltr');
 
   const playAudio = (audioFile) => {
     const playback = new Audio(audioFile);
@@ -80,7 +83,7 @@ const SamplePlayer = () => {
 
   return (
     <div className={styles.container}>
-      <p className={styles.info}>
+      <p className={styles.info} dir={textDir}>
         <FormattedMessage id="sample.info" />
       </p>
       <div className={styles.cardContainer}>
